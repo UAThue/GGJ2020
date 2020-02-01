@@ -9,14 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a22a8cd246c99044e9e913f21bd40ffc, type: 3}
-  m_Name: GiantSnake
+  m_Script: {fileID: 11500000, guid: 16c1223435b833e4b91b78895ca3a206, type: 3}
+  m_Name: Evilphobia
   m_EditorClassIdentifier: 
-  ID: GS
-  displayName: Giant Snake
-  attack: 10
-  defense: 10
-  health: 100
-  modifiers:
+  ID: SP
+  displayName: Evilphobia - Fear of Evil
+  against:
   - {fileID: 11400000, guid: a5e8a85324116fd41bbd8d5f65baa982, type: 2}
-  - {fileID: 11400000, guid: b9b5b9674fe41fc448e858b24b067b71, type: 2}
+  - {fileID: 11400000, guid: e612c39dd2505a242834306835abcf92, type: 2}

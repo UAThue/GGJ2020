@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be54ceb99d2bc1f419bb808df6166bd2, type: 3}
-  m_Name: Giant
+  m_Name: Demon
   m_EditorClassIdentifier: 
-  id: Giant
-  displayName: Giant
+  id: Demon
+  displayName: Demon

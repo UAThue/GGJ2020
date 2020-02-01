@@ -11,8 +11,6 @@ public class HeroData : ScriptableObject
     public int attack;
     public int defense;
     public int health;
-    [Range(0, 1)] public float weaponCondition;
-    [Range(0, 1)] public float armorCondition;
     public List<Advantage> advantages;
     public List<Disadvantage> disadvantages;
 

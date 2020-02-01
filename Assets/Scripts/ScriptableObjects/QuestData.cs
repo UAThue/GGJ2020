@@ -12,7 +12,13 @@ public class QuestData : ScriptableObject
     public int goldReward;
     public int dayPrereq;
     public int maxAdventurers;
-        
+    public float minDurabilityDamage = 1;
+    public float maxDurabilityDamage = 10;
+    public float randomDurabilityDamage
+    {
+        get { return Random.Range(minDurabilityDamage, maxDurabilityDamage); }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

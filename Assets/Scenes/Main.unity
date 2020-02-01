@@ -120,6 +120,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &139678409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 139678411}
+  - component: {fileID: 139678410}
+  m_Layer: 0
+  m_Name: Shop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &139678410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139678409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c932130b4c9e014b94e09f59cd7eb58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beforeShoppingIdlePoints: []
+  afterShoppingIdlePoints: []
+  repairDeskPoint: {fileID: 0}
+  questBoardPoint: {fileID: 0}
+--- !u!4 &139678411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139678409}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &631448997
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,16 +279,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9acde817729ba34b80a6e844674606f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  displayName: 
-  biographyText: 
-  attack: 0
-  defense: 0
-  health: 0
+  heroData: {fileID: 11400000, guid: a381d6da7ea0d844991752a030a4cbe4, type: 2}
   weaponCondition: 0
   armorCondition: 0
-  advantages: []
-  disadvantages: []
+  relationships: 
 --- !u!4 &922672074
 Transform:
   m_ObjectHideFlags: 0
@@ -304,29 +345,73 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heroes: []
-  shop: {fileID: 0}
-  uiManager: {fileID: 0}
+  shop: {fileID: 139678410}
+  uiManager: {fileID: 1362807846}
   heroesData: []
   monsterData: []
   questData: []
   advantagesData: []
   disadvantagesData: []
+  gameState: 0
   maxTurns: 20
   averageRelationshipCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   relationshipIncreaseCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   maxRelationshipLevel: 5
-  gameState: 0
+  maxStartingRelationshipLevel: 0
+  minRepairCost: 1
+  medRepairCost: 10
+  maxRepairCost: 100
+  minRepairAmount: 10
+  medRepairAmount: 25
+  maxRepairAmount: 50
   gold: 0
+  startingGold: 0
 --- !u!4 &1362807848
 Transform:
   m_ObjectHideFlags: 0

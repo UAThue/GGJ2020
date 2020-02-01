@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public Shop shop;
     public UIManager uiManager;
 
-
     [Header("DataObjects - Loaded at Start")]
     public List<HeroData> heroesData;
     public List<QuestData> questData;
@@ -69,17 +68,17 @@ public class GameManager : MonoBehaviour
         } else {
             Destroy(gameObject);
         }
-        
-        // Load Data
-        LoadDataFromResources();
-        
 
     }
     
     // Start is called before the first frame update
     void Start()
     {
-        turnsRemaining = maxTurns;
+        // Init Player
+        InitializePlayer();
+
+        // Create hero pawns
+        GameManager.instance.InitializeHeroPawns();
     }
 
     // Update is called once per frame
@@ -118,7 +117,7 @@ public class GameManager : MonoBehaviour
             hero.armorCondition -= Random.Range(quest.minDurabilityDamage, quest.maxDurabilityDamage);
         }
 
-        // TODO: Add advantages -- be sure to check for monster changes
+        // Add advantages -- be sure to check for monster changes
         foreach (HeroPawn hero in heroes)
         {
             float bonusModifier = 1.0f; // Start at full bonus
@@ -136,6 +135,9 @@ public class GameManager : MonoBehaviour
                         // if we find one of those types in our disadvantage, note it and quit
                         if (disadvantage.against.Contains(tag))
                         {
+                            // TODO: Add event about the disadvantage
+                            Debug.Log(hero.heroData.displayName + " is terrified of the "+ tag.displayName + " " + monster.displayName );
+
                             foundDisadvantage = true;
                             break;
                         }
@@ -168,14 +170,17 @@ public class GameManager : MonoBehaviour
                 if (advantage.statistic == Stat.Attack)
                 {
                     heroAggregateAttack += advantage.bonusAmount * bonusModifier;
+                    Debug.Log("The power of friendship adds "+ (advantage.bonusAmount * bonusModifier) + " | "+ bonusModifier + " / " + advantage.bonusAmount + " attack.");
                 }
                 if (advantage.statistic == Stat.Health)
                 {
                     heroAggregateHealth += advantage.bonusAmount * bonusModifier;
+                    Debug.Log("The power of friendship adds " + (advantage.bonusAmount * bonusModifier) + " | " + bonusModifier + " / " + advantage.bonusAmount + " health.");
                 }
                 if (advantage.statistic == Stat.Defense)
                 {
                     heroAggregateDefense += advantage.bonusAmount * bonusModifier;
+                    Debug.Log("The power of friendship adds " + (advantage.bonusAmount * bonusModifier) + " | " + bonusModifier + " / " + advantage.bonusAmount + " defense.");
                 }
             }
         }
@@ -205,6 +210,9 @@ public class GameManager : MonoBehaviour
             float damageDone = Mathf.Max(1, (heroAggregateAttack * Random.Range(minHeroBattleChance, maxHeroBattleChance)) - (monsterAggregateDefense * Random.Range(minMonsterBattleChance, maxMonsterBattleChance)));
             monsterAggregateHealth -= damageDone;
 
+            Debug.Log("The party does " + damageDone + " damage. The monster party has a total of "+monsterAggregateHealth+" health left!");
+
+
             // If monster dead, break.
             if (monsterAggregateHealth <= 0)
             {
@@ -214,7 +222,10 @@ public class GameManager : MonoBehaviour
 
             // Damage players
             damageDone = Mathf.Max(1, (monsterAggregateAttack * Random.Range(minMonsterBattleChance, maxMonsterBattleChance)) - (heroAggregateDefense * Random.Range(minHeroBattleChance, maxHeroBattleChance)));
-            monsterAggregateHealth -= damageDone;
+            heroAggregateHealth -= damageDone;
+
+            Debug.Log("The monster party does " + damageDone + " damage. The party has a total of " + heroAggregateHealth + " health left!");
+
 
             // If players dead, break
             if (heroAggregateHealth <= 0)
@@ -224,7 +235,7 @@ public class GameManager : MonoBehaviour
         }
 
         // If monsters are dead, success.
-        if (monsterAggregateHealth > 0)
+        if (monsterAggregateHealth <= 0)
         {
 
             // Add gold to all players
@@ -235,6 +246,7 @@ public class GameManager : MonoBehaviour
             }
 
             // Add success events to the event list
+            // TODO: Don't do one per round, that's too many. Maybe one per person.
             for (int i = 0; i <numberOfRounds; i++)
             {
                 // Pick a random hero
@@ -258,6 +270,7 @@ public class GameManager : MonoBehaviour
             // No change to gold
 
             // Add fail events to the event list
+            // TODO: Don't do one per round, that's too many. Maybe one per person.
             for (int i = 0; i < numberOfRounds; i++)
             {
                 // Pick a random hero
@@ -276,10 +289,15 @@ public class GameManager : MonoBehaviour
 
     public float AveragePartyRelationship( List<HeroPawn> party)
     {
+        // If we are solo, full relationship
+        if (party.Count < 2)
+        {
+            return 1.0f;
+        }
+
 
         // Average party relationships (don't include self to self checks) 
         // Total all relationships, divide by number of relationships
-        // 
         float totalValue = 0;
         float numberOfRelationshipsTested = 0;
 
@@ -323,6 +341,7 @@ public class GameManager : MonoBehaviour
         {
             GameObject tempHero = Instantiate(heroPrefab) as GameObject;
             HeroPawn tempHeroPawn = tempHero.GetComponent<HeroPawn>();
+            tempHero.name = heroData.displayName;
             tempHeroPawn.heroData = heroData;
             tempHeroPawn.weaponCondition = Random.Range(minStartCondition, maxStartCondition);
             tempHeroPawn.armorCondition = Random.Range(minStartCondition, maxStartCondition);
@@ -368,22 +387,28 @@ public class GameManager : MonoBehaviour
 
     public void InitializePlayer()
     {
+        // Load Data
+        LoadDataFromResources();
+
         turnsRemaining = maxTurns;
         gold = startingGold;
     }
-
-
-
-
+    
 }
 
 
+[System.Serializable]
 public class QuestOutcome
 {
     public List<string> events;
     public bool success;
     public int gold;
     public float relationshipGain;
+
+    public QuestOutcome()
+    {
+        events = new List<string>();
+    }
 }
 
 public enum Stat { Attack, Defense, Health, Gold };

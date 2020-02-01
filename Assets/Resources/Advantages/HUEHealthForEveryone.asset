@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a36a7d8b755bc7e4ab1adbb2089603cf, type: 3}
-  m_Name: Holy Wine
+  m_Name: HUEHealthForEveryone
   m_EditorClassIdentifier: 
-  ID: HW
-  displayName: Holy Wine
-  bonusAmount: 50
+  ID: H4E
+  displayName: Health for Everyone
+  bonusAmount: 250
   statistic: 2
   against:
   - {fileID: 11400000, guid: a5e8a85324116fd41bbd8d5f65baa982, type: 2}

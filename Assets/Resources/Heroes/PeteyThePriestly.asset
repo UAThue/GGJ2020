@@ -17,7 +17,7 @@ MonoBehaviour:
   biographyText: Got any more of that sacred wine?
   attack: 10
   defense: 10
-  health: 200
+  health: 300
   startingGold: 10
   advantages:
   - {fileID: 11400000, guid: efd82005cfb8e8146a11bdc2c99ac99c, type: 2}

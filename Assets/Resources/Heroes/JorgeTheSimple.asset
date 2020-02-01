@@ -15,11 +15,12 @@ MonoBehaviour:
   ID: JTS
   displayName: Jorge the Simple
   biographyText: "A simple guy with simple needs.\t"
-  attack: 10
-  defense: 10
+  attack: 50
+  defense: 50
   health: 100
   startingGold: 100
-  advantages: []
+  advantages:
+  - {fileID: 11400000, guid: ce42f5be97e9b6847a4079c440d819ad, type: 2}
   disadvantages: []
   idleBarks:
   - bark: '%other%, my old friend! Good to see you again!'

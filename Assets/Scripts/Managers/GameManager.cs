@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public AnimationCurve averageRelationshipCurve;
     public AnimationCurve relationshipIncreaseCurve;
     public AnimationCurve durabilityEffectCurve;
+    public AnimationCurve bonusEffectByRelationshipAverageCurve;
 
     public float maxRelationshipLevel = 5;
     public float minStartingRelationshipLevel = 0;
@@ -88,12 +89,10 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public float valueBasedOnDurability(float sourceValue, float durabilityValue)
+    public float ValueBasedOnDurability(float sourceValue, float durabilityValue)
     {
-        // TODO: Calculate new value based on how durability and durabilityEffectCurve change the source value
-
-
-        return sourceValue;
+        // Calculate new value based on how durability and durabilityEffectCurve change the source value
+        return durabilityEffectCurve.Evaluate(sourceValue);
     }
 
     public QuestOutcome DetermineBattleOutcome( List<HeroPawn> heroes, QuestData quest)
@@ -109,8 +108,8 @@ public class GameManager : MonoBehaviour
 
         foreach (HeroPawn hero in heroes)
         {
-            heroAggregateAttack += hero.heroData.attack;
-            heroAggregateDefense += hero.heroData.defense;
+            heroAggregateAttack += ValueBasedOnDurability(hero.heroData.attack, hero.weaponCondition);
+            heroAggregateDefense += ValueBasedOnDurability(hero.heroData.defense, hero.armorCondition);
             heroAggregateHealth += hero.heroData.health;
 
 
@@ -119,10 +118,67 @@ public class GameManager : MonoBehaviour
             hero.armorCondition -= Random.Range(quest.minDurabilityDamage, quest.maxDurabilityDamage);
         }
 
-        // TODO: Add bonuses -- be sure to check for monster changes
+        // TODO: Add advantages -- be sure to check for monster changes
+        foreach (HeroPawn hero in heroes)
+        {
+            float bonusModifier = 1.0f; // Start at full bonus
 
+            // iterate through disadvantages
+            bool foundDisadvantage = false;
+            foreach (Disadvantage disadvantage in hero.heroData.disadvantages)
+            {
+                // iterate through monsters
+                foreach (MonsterData monster in quest.monsters)
+                {
+                    // Iterate through each monsters set of types 
+                    foreach (MonsterTag tag in monster.modifiers)
+                    {
+                        // if we find one of those types in our disadvantage, note it and quit
+                        if (disadvantage.against.Contains(tag))
+                        {
+                            foundDisadvantage = true;
+                            break;
+                        }
+                    }
 
+                    // If I found a disadvantage, I don't need to look at other monsters
+                    if (foundDisadvantage) break;
+                }
 
+                // If I found a disadvantage, I don't need to look at other disadvantages
+                if (foundDisadvantage) break;
+            }
+
+            // If we found a disadvantage
+            if (foundDisadvantage)
+            {
+                // create a bonus modifier based on average relationships
+                bonusModifier = bonusEffectByRelationshipAverageCurve.Evaluate(AveragePartyRelationship(heroes) / maxRelationshipLevel);
+            }
+            // Otherwise, our bonus modifier is still 1.0
+            else
+            {
+                bonusModifier = 1.0f;
+            }
+
+            // iterate through advantages
+            foreach (Advantage advantage in hero.heroData.advantages)
+            {
+                //Apply "advantage.amount * modifier* and add to aggregates
+                if (advantage.statistic == Stat.Attack)
+                {
+                    heroAggregateAttack += advantage.bonusAmount * bonusModifier;
+                }
+                if (advantage.statistic == Stat.Health)
+                {
+                    heroAggregateHealth += advantage.bonusAmount * bonusModifier;
+                }
+                if (advantage.statistic == Stat.Defense)
+                {
+                    heroAggregateDefense += advantage.bonusAmount * bonusModifier;
+                }
+            }
+        }
 
         // NOTE: DO NOT CHANGE MONSTERS. Make temp monsters and change the temp ones
         float monsterAggregateHealth = 0;
@@ -181,10 +237,14 @@ public class GameManager : MonoBehaviour
             // Add success events to the event list
             for (int i = 0; i <numberOfRounds; i++)
             {
+                // Pick a random hero
+                HeroPawn chosenOne = heroes[Random.Range(0, heroes.Count)];
 
-                // TODO: Pick a random hero
-                // TODO:Pick a random string from the hero's success events
+                // TODO: Pick a random string from the hero's success events
+                string eventString = chosenOne.name + " stabs the vile beast in the face.";
+
                 // TODO: Add the finalized (no variables) version of that string to the list of outcome events.
+                results.events.Add(eventString);
             }
 
             // TODO: Update relationships
@@ -200,9 +260,14 @@ public class GameManager : MonoBehaviour
             // Add fail events to the event list
             for (int i = 0; i < numberOfRounds; i++)
             {
-                // TODO: Pick a random hero
+                // Pick a random hero
+                HeroPawn chosenOne = heroes[Random.Range(0, heroes.Count)];
+
                 // TODO: Pick a random string from the hero's success events
+                string eventString = chosenOne.name + " stumbles.";
+
                 // TODO: Add the finalized (no variables) version of that string to the list of outcome events.
+                results.events.Add(eventString);
             }
         }
 
@@ -246,7 +311,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadDataFromResources()
     {
-        // TODO: Load the Data objects from the Scriptable Objects in the Resources folder(s)
+        // Load the Data objects from the Scriptable Objects in the Resources folder(s)
         heroesData = new List<HeroData>(Resources.LoadAll<HeroData>("Heroes/"));
         questData = new List<QuestData>(Resources.LoadAll<QuestData>("Quests/"));
     }

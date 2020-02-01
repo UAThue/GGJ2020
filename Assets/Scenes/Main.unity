@@ -385,9 +385,37 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  bonusEffectByRelationshipAverageCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.754779
+      outSlope: 2.754779
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.028252788
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   maxRelationshipLevel: 5
   minStartingRelationshipLevel: 0
   maxStartingRelationshipLevel: 2
+  minHeroBattleChance: 0.9
+  maxHeroBattleChance: 1
+  minMonsterBattleChance: 0.5
+  maxMonsterBattleChance: 1
   minRepairCost: 1
   medRepairCost: 10
   maxRepairCost: 100

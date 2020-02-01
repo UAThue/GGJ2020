@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Petey
   displayName: Petey the Priestly
-  biographyText: 
+  biographyText: Got any more of that sacred wine?
   attack: 10
   defense: 10
   health: 200

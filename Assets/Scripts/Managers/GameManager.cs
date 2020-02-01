@@ -14,10 +14,7 @@ public class GameManager : MonoBehaviour
 
     [Header("DataObjects - Loaded at Start")]
     public List<HeroData> heroesData;
-    public List<MonsterData> monsterData;
     public List<QuestData> questData;
-    public List<Advantage> advantagesData;
-    public List<Disadvantage> disadvantagesData;
 
 
     [Header("Game Data")]
@@ -91,8 +88,8 @@ public class GameManager : MonoBehaviour
     public void LoadDataFromResources()
     {
         // TODO: Load the Data objects from the Scriptable Objects in the Resources folder(s)
-
-
+        heroesData = new List<HeroData>(Resources.LoadAll<HeroData>("Heroes/"));
+        questData = new List<QuestData>(Resources.LoadAll<QuestData>("Quests/"));
     }
 
     public void InitializeRelationships()

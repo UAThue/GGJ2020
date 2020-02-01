@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Quest", menuName = "Data/Quest", order = 3)]
-public class Quest : ScriptableObject
+
+[CreateAssetMenu(fileName = "Monster", menuName = "Data/Monster", order = 2)]
+public class MonsterData : ScriptableObject
 {
     public string ID;
     public string displayName;
-    [TextArea(3,10)] public string displayText;
-    public List<Monster> monsters;
-    public int goldReward;
-    public int dayPrereq;
-    public int maxAdventurers;
-        
+    public int attack;
+    public int defense;
+    public int health;
+    public List<MonsterTag> modifiers;
+
+
+
     // Start is called before the first frame update
     void Start()
     {

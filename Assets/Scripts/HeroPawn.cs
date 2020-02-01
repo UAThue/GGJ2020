@@ -7,7 +7,8 @@ public class HeroPawn : MonoBehaviour
     public HeroData heroData; // NOTE: NEVER CHANGE THIS DATA
     [Range(0, 1)] public float weaponCondition = 1;
     [Range(0, 1)] public float armorCondition = 1;
-    public List<int> relationships; // NOTE: Parallel array to GameManager.Heroes to hold the relationships
+    public int gold;
+    public List<float> relationships; // NOTE: Parallel array to GameManager.Heroes to hold the relationships
 
 
     // Start is called before the first frame update

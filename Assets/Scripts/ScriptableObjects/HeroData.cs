@@ -18,6 +18,7 @@ public class HeroData : ScriptableObject
     public List<string> disadvantageQuestBarks;
     public List<string> teamMissionFailedBarks;
     public List<string> soloMissionFailedBarks;
+    public Sprite displaySprite;
 }
 
 [System.Serializable]

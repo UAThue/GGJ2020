@@ -31,3 +31,4 @@ MonoBehaviour:
   disadvantageQuestBarks: []
   teamMissionFailedBarks: []
   soloMissionFailedBarks: []
+  displaySprite: {fileID: 21300000, guid: 5aeaf1a90c71bf9408317ccbd6931fdb, type: 3}

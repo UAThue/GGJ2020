@@ -101,7 +101,7 @@ public class UIManager : MonoBehaviour
         characterDefenseBox.text = hero.heroData.attack + " DEF\n(" + ToPercent(hero.armorCondition) + ")";
         characterGoldBox.text = hero.gold + " gp";
         characterHealthBox.text = hero.heroData.health + " hp";
-        //characterImage.sprite = hero.heroData.sprite;
+        characterImage.sprite = hero.heroData.displaySprite;
 
         int currentRelationshipBox = 0;
 
@@ -120,7 +120,8 @@ public class UIManager : MonoBehaviour
                 // Enable the relationship box
                 relationshipImages[currentRelationshipBox].characterImage.gameObject.SetActive(true);
 
-                //TODO: Set the image
+                //Set the image
+                relationshipImages[currentRelationshipBox].characterImage.sprite = GameManager.instance.heroes[otherHeroIndex].heroData.displaySprite;
 
                 // Set the relationship value
                 relationshipImages[currentRelationshipBox].RelationshipImage.fillAmount = hero.relationships[otherHeroIndex] / GameManager.instance.maxRelationshipLevel;

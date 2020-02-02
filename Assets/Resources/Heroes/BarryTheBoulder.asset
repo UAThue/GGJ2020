@@ -44,3 +44,4 @@ MonoBehaviour:
   - I blame %teammate%.
   soloMissionFailedBarks:
   - Maybe if I had some help, I would fight better.
+  displaySprite: {fileID: 21300000, guid: c3f17e0a3dcc0504783df7e9490e27b1, type: 3}

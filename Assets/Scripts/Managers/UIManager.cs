@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public GameObject HeroDisplay;
     public GameObject RepairSettingsDisplay;
     public GameObject QuestOutcomeDisplay;
+    public GameObject EndOfDayScreen;
 
     private GameObject currentWindow;
 

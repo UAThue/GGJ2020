@@ -268,8 +268,10 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator DoRunQuests()
     {
-        isWaitingForButton = false;
 
+        // Turn on the results screen
+        uiManager.OpenWindow(uiManager.QuestOutcomeDisplay);
+        
         List<QuestObject> questsToRemove = new List<QuestObject>();
         
         // For each quest that were available today
@@ -291,12 +293,15 @@ public class GameManager : MonoBehaviour
                 // TODO: coroutine to Update the quest screen to show results over time.
                 uiManager.combatQuestTitleBox.text = "Results: "+ quest.questData.displayName;
                 uiManager.combatEventsLog.text = "";
+                
                 foreach (string outcomeEvent in results.events)
                 {
+                    // Wait some time.
+                    yield return new WaitForSeconds(0.5f);
 
-
+                    // Display the text 
+                    uiManager.combatEventsLog.text += outcomeEvent + "\n";
                 }
-
 
                 isWaitingForButton = true;
 
@@ -328,6 +333,9 @@ public class GameManager : MonoBehaviour
         if (turnsRemaining > 0)
         {
             // TODO: SHOW THE END OF DAY IMAGE
+            // Turn on the results screen
+            uiManager.CloseCurrentWindow();
+            uiManager.OpenWindow(uiManager.EndOfDayScreen);
 
             // TODO: Set text to say "DAYS REMAINING..." + days
 

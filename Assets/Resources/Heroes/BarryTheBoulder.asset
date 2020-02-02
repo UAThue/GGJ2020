@@ -19,7 +19,7 @@ MonoBehaviour:
   attack: 100
   defense: 50
   health: 150
-  startingGold: 10
+  startingGold: 20
   advantages:
   - {fileID: 11400000, guid: 71ad0c4e15a7dd4499c5385ffdd0f011, type: 2}
   - {fileID: 11400000, guid: b585ef2d4d746e5448888d5f32aeaa89, type: 2}

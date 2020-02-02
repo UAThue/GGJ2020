@@ -46,6 +46,7 @@ public class UIManager : MonoBehaviour
     [Header("Combat Log Screen")]
     public TextMeshProUGUI combatQuestTitleBox;
     public TextMeshProUGUI combatEventsLog;
+    public TextMeshProUGUI outcomeSummaryLineBox;
 
     [Header("End of Day Screen")]
     public TextMeshProUGUI endOfDayText;

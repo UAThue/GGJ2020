@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 4, y: 0.6}
+  m_AnchoredPosition: {x: 0, y: 0.06}
+  m_SizeDelta: {x: 3.403, y: 0.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3748531447101269333
 CanvasRenderer:
@@ -93,8 +93,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 0.35
-  m_fontSizeBase: 0.35
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0.1
@@ -192,8 +192,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.85}
-  m_SizeDelta: {x: 0, y: 0.099999964}
+  m_AnchoredPosition: {x: 0, y: 0.62}
+  m_SizeDelta: {x: -0.969, y: -0.307}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5291139128782346226
 CanvasRenderer:
@@ -286,7 +286,7 @@ MonoBehaviour:
   armorCondition: 0
   gold: 0
   relationships: []
-  moveSpeed: 1
+  moveSpeed: 3
   barkTextBox: {fileID: 8595994288761553460}
   barkBox: {fileID: 8901530361927887257}
 --- !u!212 &125486114
@@ -435,7 +435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.75}
+  m_AnchoredPosition: {x: 0.01, y: 0.47}
   m_SizeDelta: {x: 5, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6942689975967023628

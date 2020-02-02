@@ -306,6 +306,16 @@ public class GameManager : MonoBehaviour
                     uiManager.combatEventsLog.text += outcomeEvent + "\n";
                 }
 
+                yield return new WaitForSeconds(0.5f);
+                if (results.success)
+                {
+                    uiManager.outcomeSummaryLineBox.text = "The party was victorious!";
+                }
+                else
+                {
+                    uiManager.outcomeSummaryLineBox.text = "The party was defeated!";
+                }
+
                 isWaitingForButton = true;
 
                 nextStepButtonText.text = "Continue";
@@ -363,6 +373,11 @@ public class GameManager : MonoBehaviour
             {
                 hero.transform.position = new Vector3(10, 0 , 0);
             }
+
+            // TODO: FIX THIS HARDCODING! THIS IS BAD!
+            uiManager.EndOfDayScreen.SetActive(false);
+            uiManager.QuestOutcomeDisplay.SetActive(false);
+            uiManager.OpenWindow(uiManager.MainGameButton);
 
             // Start the day
             StartDay();

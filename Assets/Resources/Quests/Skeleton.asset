@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8301fbd8e9328a4d8bd1221531dc53a, type: 3}
+  m_Name: Skeleton
+  m_EditorClassIdentifier: 
+  ID: qst_skeleton
+  displayName: Stick TeePee
+  displayText: When we tried to remove the toilet paper from the slain mummers, their
+    skin fell off too. A ghastly sight! They also reanimated afterwards. We need someone
+    to clear our crypt of some skeletons.
+  monsters:
+  - {fileID: 11400000, guid: 1965ba010b42c3349b2ceacdabdef392, type: 2}
+  goldReward: 100
+  dayPrereq: 11
+  maxAdventurers: 5
+  minDurabilityDamage: 25
+  maxDurabilityDamage: 40

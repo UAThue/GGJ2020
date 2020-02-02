@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8301fbd8e9328a4d8bd1221531dc53a, type: 3}
+  m_Name: CloudGiant
+  m_EditorClassIdentifier: 
+  ID: qst_cloud_giant
+  displayName: Magic Beans
+  displayText: "Some shady merchant came through the other day and sold some magic
+    beans to poor old Lady Mae. She went and planted them, and a giant beanstalk shot
+    up out of the ground into the clouds. It sounds like there\u2019s something pretty
+    big up there that\u2019ll cause our little town trouble. I need some adventurers
+    to go up there and handle that!"
+  monsters:
+  - {fileID: 11400000, guid: 6cbb2d1a4aaf7004599ac93f1c475942, type: 2}
+  goldReward: 90
+  dayPrereq: 11
+  maxAdventurers: 5
+  minDurabilityDamage: 27
+  maxDurabilityDamage: 35

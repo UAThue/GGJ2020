@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e61028ba0802044950fed566512b99, type: 3}
+  m_Name: DanielleTheDancer
+  m_EditorClassIdentifier: 
+  ID: Danielle
+  displayName: Danielle the Dancer
+  biographyText: Barry looks at fighting all wrong. A fight is a dance of grace and
+    elegance between two combatants. This is the most important lesson my order had
+    to teach me. I best my opponents, because I heed their advice, and my opponents
+    do not.
+  attack: 75
+  defense: 100
+  health: 125
+  startingGold: 4
+  advantages:
+  - {fileID: 11400000, guid: 1a9b2ec06b5bc674ba845f73653b1c24, type: 2}
+  - {fileID: 11400000, guid: cc338e5496329f44aab1a05d0dc6d484, type: 2}
+  disadvantages:
+  - {fileID: 11400000, guid: a3a9840084ec1bf45bf14852c9f40cb5, type: 2}
+  - {fileID: 11400000, guid: a5ffd90cc0bd4374699548ce18177243, type: 2}
+  idleBarks: []
+  disadvantageQuestBarks: []
+  teamMissionFailedBarks: []
+  soloMissionFailedBarks: []

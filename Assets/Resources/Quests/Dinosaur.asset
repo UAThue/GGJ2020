@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8301fbd8e9328a4d8bd1221531dc53a, type: 3}
+  m_Name: Dinosaur
+  m_EditorClassIdentifier: 
+  ID: qst_dinosaur
+  displayName: Revenge of the Chickens
+  displayText: "The chickens weren\u2019t pleased with the cows suggesting we eat
+    them more. They\u2019ve found a way to devolve into a more prehistoric state.
+    I\u2019ve got farmers waking up to velociraptors in their chicken coops! I need
+    some brave souls to help clear them out!"
+  monsters:
+  - {fileID: 11400000, guid: 9f03d0ac6da501f4492cc8bae03118a4, type: 2}
+  goldReward: 138
+  dayPrereq: 14
+  maxAdventurers: 5
+  minDurabilityDamage: 36
+  maxDurabilityDamage: 40

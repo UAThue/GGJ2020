@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22a8cd246c99044e9e913f21bd40ffc, type: 3}
+  m_Name: Chimera
+  m_EditorClassIdentifier: 
+  ID: chimera
+  displayName: Chimera
+  attack: 175
+  defense: 225
+  health: 100
+  modifiers:
+  - {fileID: 11400000, guid: 689fe53c15d3e4045b19017927002179, type: 2}
+  - {fileID: 11400000, guid: 732ad077998b034428727aa53a5cb99a, type: 2}
+  - {fileID: 11400000, guid: 20149782d053fd744b8cbab39b8d2794, type: 2}

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8301fbd8e9328a4d8bd1221531dc53a, type: 3}
+  m_Name: Cow
+  m_EditorClassIdentifier: 
+  ID: qst_cow
+  displayName: Mad Cow
+  displayText: "The local cow has started protesting about how much red meat we\u2019re
+    eating. He's even created picket signs about how we should \u201Ceat more chicken\u201D.
+    I don\u2019t know what that is all about, but it doesn\u2019t look good. Can I
+    get a few adventurers to help \u201Cquell\u201D this one?"
+  monsters:
+  - {fileID: 11400000, guid: c2c141e5b6f1e3846b6509e3b50a234e, type: 2}
+  goldReward: 5
+  dayPrereq: 0
+  maxAdventurers: 2
+  minDurabilityDamage: 1
+  maxDurabilityDamage: 5

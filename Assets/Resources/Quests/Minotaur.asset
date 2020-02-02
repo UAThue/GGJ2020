@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8301fbd8e9328a4d8bd1221531dc53a, type: 3}
+  m_Name: Minotaur
+  m_EditorClassIdentifier: 
+  ID: qst_minotaur
+  displayName: Mad Cow II
+  displayText: "Cows got tired of us not listening to them when they told us to \u201Ceat
+    more chicken\u201D. They\u2019re now bipedal and wielding giant axes! We\u2019re
+    going to need some seasoned adventurers for this job!"
+  monsters:
+  - {fileID: 11400000, guid: b563ad4f4930da44d91d4ce0eb1bc68d, type: 2}
+  goldReward: 85
+  dayPrereq: 10
+  maxAdventurers: 5
+  minDurabilityDamage: 24
+  maxDurabilityDamage: 34

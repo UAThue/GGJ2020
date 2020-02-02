@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22a8cd246c99044e9e913f21bd40ffc, type: 3}
+  m_Name: BoaConstrictor
+  m_EditorClassIdentifier: 
+  ID: boa_constrictor
+  displayName: Boa Constrictor
+  attack: 75
+  defense: 125
+  health: 50
+  modifiers:
+  - {fileID: 11400000, guid: 689fe53c15d3e4045b19017927002179, type: 2}
+  - {fileID: 11400000, guid: b9b5b9674fe41fc448e858b24b067b71, type: 2}

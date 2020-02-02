@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Barry
   displayName: Barry the Boulder
-  biographyText: 'Barry is not hero. Boulder is hero. Barry just humble servant of
-    Boulder. Barry do what Boulder say. Boulder say smash monster in face. '
+  biographyText: Barry is not hero. Boulder is hero. Barry just humble servant of
+    Boulder. Barry do what Boulder say. Boulder say smash monster in face.
   attack: 100
   defense: 50
   health: 150

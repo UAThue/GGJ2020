@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22a8cd246c99044e9e913f21bd40ffc, type: 3}
+  m_Name: Gnolls
+  m_EditorClassIdentifier: 
+  ID: gnolls
+  displayName: Gnolls
+  attack: 45
+  defense: 55
+  health: 25
+  modifiers:
+  - {fileID: 11400000, guid: aa9e6131480ec134d8c30e18a8f5682d, type: 2}
+  - {fileID: 11400000, guid: 1623e48f002eff6428f98c04bcd0a9b8, type: 2}
+  - {fileID: 11400000, guid: ebc2091da77e5134cb6aeac217a6cd69, type: 2}

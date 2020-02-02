@@ -12,8 +12,7 @@ public class Shop : MonoBehaviour
     public Transform questBoardPoint;
     
     [Header("Settings")]
-    [Range(0, 2)] public int currentArmorRepairLevel;
-    [Range(0, 2)] public int currentWeaponRepairLevel;
+    public int currentRepairIndex;
     public int currentQuestBoardIndex;
     
     [Header("Working Data")]
@@ -38,6 +37,7 @@ public class Shop : MonoBehaviour
     {
         // Start quest board at 0
         currentQuestBoardIndex = 0;
+        currentRepairIndex = 0;
 
         // Start today's quests
         todaysQuests = new List<QuestObject>();
@@ -70,27 +70,53 @@ public class Shop : MonoBehaviour
         }
     }
 
+    public void NextRepair()
+    {
+        currentRepairIndex--;
+        if (currentRepairIndex < 0)
+        {
+            currentRepairIndex = GameManager.instance.repairData.Count - 1;
+        }
+
+        // Update the UI
+        GameManager.instance.uiManager.UpdateRepairWindow();
+    }
+
+    public void PreviousRepair()
+    {
+        currentRepairIndex++;
+        if (currentRepairIndex >= GameManager.instance.repairData.Count)
+        {
+            currentRepairIndex = 0;
+        }
+
+        // Update the UI
+        GameManager.instance.uiManager.UpdateRepairWindow();
+    }
+
 
     public void NextQuest()
     {
-        currentQuestBoardIndex++;
+        currentQuestBoardIndex--;
         if (currentQuestBoardIndex < 0)
         {
             currentQuestBoardIndex = todaysQuests.Count-1;
         }
 
-        // TODO: Update the UI
+        // Update the UI
+        GameManager.instance.uiManager.UpdateQuestWindow();
     }
 
     public void PreviousQuest()
     {
         currentQuestBoardIndex++;
-        if (currentQuestBoardIndex > todaysQuests.Count)
+        if (currentQuestBoardIndex >= todaysQuests.Count)
         {
             currentQuestBoardIndex = 0;
         }
 
-        // TODO: Update the UI
+        // Update the UI
+        GameManager.instance.uiManager.UpdateQuestWindow();
     }
 
 
@@ -136,22 +162,22 @@ public class Shop : MonoBehaviour
     public IEnumerator DoCustomerRepair()
     {
         // Shrink index to within number of costs or amounts, whichever is lower
-        Mathf.Clamp(currentWeaponRepairLevel, 0, GameManager.instance.repairCosts.Count - 1);
-        Mathf.Clamp(currentWeaponRepairLevel, 0, GameManager.instance.repairAmounts.Count - 1);
+        Mathf.Clamp(currentRepairIndex, 0, GameManager.instance.repairData.Count - 1);
+        Mathf.Clamp(currentRepairIndex, 0, GameManager.instance.repairData.Count - 1);
 
         //If they have enough coin for weapon, update
-        if (GameManager.instance.heroes[currentCustomerIndex].gold > GameManager.instance.repairCosts[currentWeaponRepairLevel]) {
-            GameManager.instance.heroes[currentCustomerIndex].gold -= GameManager.instance.repairCosts[currentWeaponRepairLevel];
-            GameManager.instance.heroes[currentCustomerIndex].weaponCondition += GameManager.instance.repairAmounts[currentWeaponRepairLevel];
+        if (GameManager.instance.heroes[currentCustomerIndex].gold > GameManager.instance.repairData[currentRepairIndex].cost) {
+            GameManager.instance.heroes[currentCustomerIndex].gold -= GameManager.instance.repairData[currentRepairIndex].cost;
+            GameManager.instance.heroes[currentCustomerIndex].weaponCondition += GameManager.instance.repairData[currentRepairIndex].repairWeaponAmount;
 
             // TODO: Show floating message for "Weapon Repaired"
         }
 
         //If they have enough coin for armor, update
-        if (GameManager.instance.heroes[currentCustomerIndex].gold > GameManager.instance.repairCosts[currentArmorRepairLevel])
+        if (GameManager.instance.heroes[currentCustomerIndex].gold > GameManager.instance.repairData[currentRepairIndex].cost)
         {
-            GameManager.instance.heroes[currentCustomerIndex].gold -= GameManager.instance.repairCosts[currentArmorRepairLevel];
-            GameManager.instance.heroes[currentCustomerIndex].armorCondition += GameManager.instance.repairAmounts[currentArmorRepairLevel];
+            GameManager.instance.heroes[currentCustomerIndex].gold -= GameManager.instance.repairData[currentRepairIndex].cost;
+            GameManager.instance.heroes[currentCustomerIndex].armorCondition += GameManager.instance.repairData[currentRepairIndex].repairArmorAmount;
 
             // TODO: Show floating message for "Armor Repaired"
         }

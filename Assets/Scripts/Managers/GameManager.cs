@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
 
     [Header("DataObjects - Loaded at Start")]
     public List<HeroData> heroesData;
-
     public List<QuestData> questData;
+    public List<RepairData> repairData;
 
     [Header("Game Data")] public GameStates gameState;
     public int maxTurns = 20;
@@ -43,9 +43,6 @@ public class GameManager : MonoBehaviour
     public float maxMonsterBattleChance = 1.0f;
 
     [Header("Repair Data")] 
-    public List<int> repairCosts = new List<int>();
-    public List<int> repairAmounts = new List<int>();
-
     public float minStartCondition = 0.35f;
     public float maxStartCondition = 0.45f;
 
@@ -336,6 +333,7 @@ public class GameManager : MonoBehaviour
         // Load the Data objects from the Scriptable Objects in the Resources folder(s)
         heroesData = new List<HeroData>(Resources.LoadAll<HeroData>("Heroes/"));
         questData = new List<QuestData>(Resources.LoadAll<QuestData>("Quests/"));
+        repairData = new List<RepairData>( Resources.LoadAll<RepairData>("RepairTypes"));
     }
 
     public void InitializeHeroPawns()
@@ -411,6 +409,7 @@ public class QuestOutcome
         events = new List<string>();
     }
 }
+
 
 public enum Stat { Attack, Defense, Health, Gold };
 public enum GameStates { Menu, Opening, HelpingCustomer, AllCustomersComplete, Combat, Epilogue }

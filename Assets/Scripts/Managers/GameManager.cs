@@ -5,20 +5,19 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    
-    [Header("Objects")]
-    public List<HeroPawn> heroes;
+
+    [Header("Objects")] public List<HeroPawn> heroes;
     public Shop shop;
     public UIManager uiManager;
 
     [Header("DataObjects - Loaded at Start")]
     public List<HeroData> heroesData;
+
     public List<QuestData> questData;
 
-    [Header("Game Data")]
-    public GameStates gameState;
+    [Header("Game Data")] public GameStates gameState;
     public int maxTurns = 20;
-    public int turnsRemaining { get; private set; }
+    public int turnsRemaining = 0;
 
     public AnimationCurve averageRelationshipCurve;
     public AnimationCurve relationshipIncreaseCurve;
@@ -28,24 +27,24 @@ public class GameManager : MonoBehaviour
     public float maxRelationshipLevel = 5;
     public float minStartingRelationshipLevel = 0;
     public float maxStartingRelationshipLevel = 2;
+    public int currentDay
+    {
+        get { return maxTurns - turnsRemaining; }
+    }
 
-    public float minHeroBattleChance = 0.9f; // Hero party aggregates (atk and def) are reduced by a random amount between min and max
+    public float
+        minHeroBattleChance = 0.9f; // Hero party aggregates (atk and def) are reduced by a random amount between min and max
+
     public float maxHeroBattleChance = 1.0f;
-    public float minMonsterBattleChance = 0.5f; // Monster party aggregates (atk and def) are reduced by a random amount between min and max
+
+    public float
+        minMonsterBattleChance = 0.5f; // Monster party aggregates (atk and def) are reduced by a random amount between min and max
+
     public float maxMonsterBattleChance = 1.0f;
 
-    [Header("Repair Data")]
-    public int minRepairCost = 0;
-
-    public int medRepairCost = 10;
-
-    public int maxRepairCost = 100;
-
-    public int minRepairAmount = 10;
-
-    public int medRepairAmount = 25;
-
-    public int maxRepairAmount = 50;
+    [Header("Repair Data")] 
+    public List<int> repairCosts = new List<int>();
+    public List<int> repairAmounts = new List<int>();
 
     public float minStartCondition = 0.35f;
     public float maxStartCondition = 0.45f;
@@ -69,6 +68,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        // TODO: Find better way to do this than to have to set it here, too
+        turnsRemaining = maxTurns;
+
+        // Load Data
+        LoadDataFromResources();
     }
     
     // Start is called before the first frame update
@@ -387,9 +391,6 @@ public class GameManager : MonoBehaviour
 
     public void InitializePlayer()
     {
-        // Load Data
-        LoadDataFromResources();
-
         turnsRemaining = maxTurns;
         gold = startingGold;
     }

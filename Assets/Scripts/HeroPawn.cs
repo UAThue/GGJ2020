@@ -9,13 +9,38 @@ public class HeroPawn : MonoBehaviour
     [Range(0, 1)] public float armorCondition = 1;
     public int gold;
     public List<float> relationships; // NOTE: Parallel array to GameManager.Heroes to hold the relationships
+    public float moveSpeed = 1;
 
+    private Animator anim;
+    private SpriteRenderer sr;
+    private float lastKnownXPosition;
+    private ClickableObject clickHandler;
 
-    // Start is called before the first frame update
+    //   is called before the first frame update
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+        clickHandler = GetComponent<ClickableObject>();
+    }
+
     void Start()
     {
-        
+        if (clickHandler != null)
+        {
+            Debug.Log("has clickhandler");
+
+            clickHandler.OnClick.AddListener(OpenCharacterWindowAction);
+        }
     }
+
+    public void OpenCharacterWindowAction()
+    {
+        Debug.Log("here");
+        GameManager.instance.uiManager.OpenWindow(GameManager.instance.uiManager.HeroDisplay);
+        GameManager.instance.uiManager.UpdateCharacterWindow(this);
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -23,8 +48,34 @@ public class HeroPawn : MonoBehaviour
         
     }
 
-    void MoveTo(Vector3 position)
+    public IEnumerator MoveTo(Vector3 position)
     {
-        // TODO: Move pawn to that position
+
+        // Until we reach position
+        while (transform.position != position) {
+            // Save their last known x
+            lastKnownXPosition = transform.position.x;
+
+            // Move pawn to that position
+            transform.position = Vector2.MoveTowards(transform.position, position, moveSpeed * Time.deltaTime);
+            anim.SetBool("isMoving", true);
+
+            if (transform.position.x > lastKnownXPosition) {
+                sr.flipX = false;
+            }
+            else {
+                sr.flipX = true;
+            }
+
+            // Do next frame draw
+            yield return null;
+        }
+        yield return StartCoroutine(StopMoving());
+    }
+
+    public IEnumerator StopMoving ()
+    {
+        anim.SetBool("isMoving", false);
+        yield return null;
     }
 }

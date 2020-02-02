@@ -5,20 +5,19 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    
-    [Header("Objects")]
-    public List<HeroPawn> heroes;
+
+    [Header("Objects")] public List<HeroPawn> heroes;
     public Shop shop;
     public UIManager uiManager;
 
     [Header("DataObjects - Loaded at Start")]
     public List<HeroData> heroesData;
     public List<QuestData> questData;
+    public List<RepairData> repairData;
 
-    [Header("Game Data")]
-    public GameStates gameState;
+    [Header("Game Data")] public GameStates gameState;
     public int maxTurns = 20;
-    public int turnsRemaining { get; private set; }
+    public int turnsRemaining = 0;
 
     public AnimationCurve averageRelationshipCurve;
     public AnimationCurve relationshipIncreaseCurve;
@@ -28,25 +27,22 @@ public class GameManager : MonoBehaviour
     public float maxRelationshipLevel = 5;
     public float minStartingRelationshipLevel = 0;
     public float maxStartingRelationshipLevel = 2;
+    public int currentDay
+    {
+        get { return maxTurns - turnsRemaining; }
+    }
 
-    public float minHeroBattleChance = 0.9f; // Hero party aggregates (atk and def) are reduced by a random amount between min and max
+    public float
+        minHeroBattleChance = 0.9f; // Hero party aggregates (atk and def) are reduced by a random amount between min and max
+
     public float maxHeroBattleChance = 1.0f;
-    public float minMonsterBattleChance = 0.5f; // Monster party aggregates (atk and def) are reduced by a random amount between min and max
+
+    public float
+        minMonsterBattleChance = 0.5f; // Monster party aggregates (atk and def) are reduced by a random amount between min and max
+
     public float maxMonsterBattleChance = 1.0f;
 
-    [Header("Repair Data")]
-    public int minRepairCost = 0;
-
-    public int medRepairCost = 10;
-
-    public int maxRepairCost = 100;
-
-    public int minRepairAmount = 10;
-
-    public int medRepairAmount = 25;
-
-    public int maxRepairAmount = 50;
-
+    [Header("Repair Data")] 
     public float minStartCondition = 0.35f;
     public float maxStartCondition = 0.45f;
 
@@ -69,6 +65,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        // TODO: Find better way to do this than to have to set it here, too
+        turnsRemaining = maxTurns;
+
+        // Load Data
+        LoadDataFromResources();
     }
     
     // Start is called before the first frame update
@@ -84,14 +85,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            uiManager.Quit();
+        }
     }
 
 
     public float ValueBasedOnDurability(float sourceValue, float durabilityValue)
     {
         // Calculate new value based on how durability and durabilityEffectCurve change the source value
-        return durabilityEffectCurve.Evaluate(sourceValue);
+        return sourceValue * durabilityEffectCurve.Evaluate(durabilityValue);
     }
 
     public QuestOutcome DetermineBattleOutcome( List<HeroPawn> heroes, QuestData quest)
@@ -332,26 +336,30 @@ public class GameManager : MonoBehaviour
         // Load the Data objects from the Scriptable Objects in the Resources folder(s)
         heroesData = new List<HeroData>(Resources.LoadAll<HeroData>("Heroes/"));
         questData = new List<QuestData>(Resources.LoadAll<QuestData>("Quests/"));
+        repairData = new List<RepairData>( Resources.LoadAll<RepairData>("RepairTypes"));
     }
 
     public void InitializeHeroPawns()
     {
         // For each herodata, create an actual pawn
-        foreach (HeroData heroData in heroesData)
+        for (int i=0; i< heroesData.Count; i++)
         {
-            GameObject tempHero = Instantiate(heroPrefab) as GameObject;
+            HeroData heroData = heroesData[i];
+            GameObject tempHero = Instantiate(heroPrefab, new Vector3(10, 0, 0), Quaternion.identity) as GameObject;
             HeroPawn tempHeroPawn = tempHero.GetComponent<HeroPawn>();
             tempHero.name = heroData.displayName;
+            Animator tempHeroAnim = tempHero.GetComponent<Animator>();
+            tempHeroAnim.runtimeAnimatorController = heroData.animatorController;
             tempHeroPawn.heroData = heroData;
             tempHeroPawn.weaponCondition = Random.Range(minStartCondition, maxStartCondition);
             tempHeroPawn.armorCondition = Random.Range(minStartCondition, maxStartCondition);
             tempHeroPawn.gold = tempHeroPawn.heroData.startingGold;
             tempHeroPawn.relationships = new List<float>();
-            for (int i = 0; i<heroesData.Count; i++) tempHeroPawn.relationships.Add(0);
+            for (int relationshipIndex = 0; relationshipIndex < heroesData.Count; relationshipIndex++) tempHeroPawn.relationships.Add(0);
             heroes.Add(tempHeroPawn);
 
-            // TODO: Move pawn to their appropriate start locations
-
+            // Move pawn to their appropriate start locations
+            tempHeroPawn.StartCoroutine(tempHeroPawn.MoveTo(shop.beforeShoppingIdlePoints[i].position));
         }
 
         // Now that heroes exist, we can give them relationships
@@ -387,9 +395,6 @@ public class GameManager : MonoBehaviour
 
     public void InitializePlayer()
     {
-        // Load Data
-        LoadDataFromResources();
-
         turnsRemaining = maxTurns;
         gold = startingGold;
     }
@@ -410,6 +415,7 @@ public class QuestOutcome
         events = new List<string>();
     }
 }
+
 
 public enum Stat { Attack, Defense, Health, Gold };
 public enum GameStates { Menu, Opening, HelpingCustomer, AllCustomersComplete, Combat, Epilogue }

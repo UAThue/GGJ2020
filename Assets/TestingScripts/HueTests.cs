@@ -29,5 +29,34 @@ public class HueTests : MonoBehaviour
         }
 
 
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            GameManager.instance.uiManager.UpdateCharacterWindow(heroes[0]);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            StartCoroutine(TestMove());
+        }
+
+
+
+
+    }
+
+    public IEnumerator TestMove()
+    {
+        Debug.Log("Moving");
+
+        yield return heroes[0].MoveTo(new Vector3(0, 0, 0));
+
+        yield return new WaitForSeconds(0.5f);
+
+        yield return heroes[0].MoveTo(new Vector3(3, 2, 0));
+
+        yield return new WaitForSeconds(0.5f);
+
+        yield return heroes[0].MoveTo(new Vector3(-2, -1, 0));
+
+        yield return null;
     }
 }

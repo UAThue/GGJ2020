@@ -22,6 +22,11 @@ public class HeroData : ScriptableObject
 	public List<string> failQuestBarks;
     public List<string> teamMissionFailedBarks;
     public List<string> soloMissionFailedBarks;
+    public List<string> missionFailedCombatEvents;
+    public List<string> missionSuccessCombatEvents;
+    public List<string> missionGenericCombatEvents;
+    public Sprite displaySprite;
+    public RuntimeAnimatorController animatorController;
 }
 
 [System.Serializable]

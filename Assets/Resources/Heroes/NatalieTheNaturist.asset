@@ -79,3 +79,8 @@ MonoBehaviour:
   - Big meany!
   teamMissionFailedBarks: []
   soloMissionFailedBarks: []
+  missionFailedCombatEvents: []
+  missionSuccessCombatEvents: []
+  missionGenericCombatEvents: []
+  displaySprite: {fileID: 21300000, guid: d228b6110735ef540bca640894c66b8f, type: 3}
+  animatorController: {fileID: 9100000, guid: 58aae87785b8dc94bb1dd0f7b5a382e5, type: 2}

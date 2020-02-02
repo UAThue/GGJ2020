@@ -78,3 +78,8 @@ MonoBehaviour:
   - '%monster% was a worthy opponent to be sure.'
   teamMissionFailedBarks: []
   soloMissionFailedBarks: []
+  missionFailedCombatEvents: []
+  missionSuccessCombatEvents: []
+  missionGenericCombatEvents: []
+  displaySprite: {fileID: 21300000, guid: 6c1f01c23dd9017428c6d09972932be9, type: 3}
+  animatorController: {fileID: 9100000, guid: 7f2a84a80287b4d40ac78c798ac2f5e2, type: 2}

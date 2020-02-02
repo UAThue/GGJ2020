@@ -77,3 +77,8 @@ MonoBehaviour:
   - How did %monster% resist my flame!?
   teamMissionFailedBarks: []
   soloMissionFailedBarks: []
+  missionFailedCombatEvents: []
+  missionSuccessCombatEvents: []
+  missionGenericCombatEvents: []
+  displaySprite: {fileID: 21300000, guid: 5aeaf1a90c71bf9408317ccbd6931fdb, type: 3}
+  animatorController: {fileID: 9100000, guid: cb1e37d3ab5bbac48aacdf62292a05ac, type: 2}

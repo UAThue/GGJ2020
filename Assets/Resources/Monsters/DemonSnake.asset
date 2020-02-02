@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: DS
   displayName: Demon Snake
-  attack: 20
-  defense: 20
+  attack: 10
+  defense: 5
   health: 150
   modifiers:
   - {fileID: 11400000, guid: a5e8a85324116fd41bbd8d5f65baa982, type: 2}

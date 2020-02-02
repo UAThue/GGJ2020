@@ -11,18 +11,19 @@ public class HeroData : ScriptableObject
     public int attack;
     public int defense;
     public int health;
+    public int startingGold;
     public List<Advantage> advantages;
     public List<Disadvantage> disadvantages;
+    public List<nearOtherBark> idleBarks;
+    public List<string> disadvantageQuestBarks;
+    public List<string> teamMissionFailedBarks;
+    public List<string> soloMissionFailedBarks;
+}
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[System.Serializable]
+public class nearOtherBark
+{
+    public string bark;
+    public float minRelationshipLevel;
+    public float maxRelationshipLevel;
 }

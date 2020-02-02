@@ -10,20 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8e61028ba0802044950fed566512b99, type: 3}
-  m_Name: BarryTheBoulder
+  m_Name: JorgeTheSimple
   m_EditorClassIdentifier: 
-  ID: Barry
-  displayName: Barry the Boulder
-  biographyText: 'Barry is not hero. Boulder is hero. Barry just humble servant of
-    Boulder. Barry do what Boulder say. Boulder say smash monster in face. '
-  attack: 100
+  ID: JTS
+  displayName: Jorge the Simple
+  biographyText: "A simple guy with simple needs.\t"
+  attack: 50
   defense: 50
-  health: 150
-  startingGold: 10
+  health: 100
+  startingGold: 100
   advantages:
-  - {fileID: 11400000, guid: 6b36945c109a6644e99d30766e42d2a0, type: 2}
-  disadvantages:
-  - {fileID: 11400000, guid: 148d6b560539ac642a768064aa5cce18, type: 2}
+  - {fileID: 11400000, guid: ce42f5be97e9b6847a4079c440d819ad, type: 2}
+  disadvantages: []
   idleBarks:
   - bark: '%other%, my old friend! Good to see you again!'
     minRelationshipLevel: 4.5

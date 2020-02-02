@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     public GameObject RepairSettingsDisplay;
     public GameObject QuestOutcomeDisplay;
 
+    private GameObject currentWindow;
+
 
     public IEnumerator OpenWindow( GameObject UIWindowToOpen )
     {
@@ -34,6 +36,18 @@ public class UIManager : MonoBehaviour
 
         yield return null;
     }
+
+    public void OnClickNextQuest()
+    {
+        
+    }
+
+    public void OnClickPrevQuest()
+    {
+
+    }
+
+    
 
     
 }

@@ -196,15 +196,21 @@ public class Shop : MonoBehaviour
 
     public IEnumerator DoCustomerQuestSignup()
     {
-        // TODO: If the quest is not full
-        if (false)
+        // If the quest is not full
+        if (todaysQuests[currentQuestBoardIndex].heroes.Count < todaysQuests[currentQuestBoardIndex].questData.maxAdventurers) 
         {
-            // TODO: Sign the hero up for the quest
+            // Sign the hero up for the quest
+            todaysQuests[currentQuestBoardIndex].heroes.Add(GameManager.instance.heroes[currentCustomerIndex]);
 
+            Debug.Log(GameManager.instance.heroes[currentCustomerIndex].heroData.displayName + " signed up for quest "+ todaysQuests[currentQuestBoardIndex].questData.displayName);
+
+            // TODO: Quest Bark
         }
-
-        // TODO: Start customer moving to the exit location
-
+        else
+        {
+            Debug.Log(GameManager.instance.heroes[currentCustomerIndex].heroData.displayName + " failed to join quest " + todaysQuests[currentQuestBoardIndex].questData.displayName);
+            // TODO: Bark that quest is too full
+        }
 
         // End
         yield return null;

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class HeroPawn : MonoBehaviour
@@ -11,10 +12,14 @@ public class HeroPawn : MonoBehaviour
     public List<float> relationships; // NOTE: Parallel array to GameManager.Heroes to hold the relationships
     public float moveSpeed = 1;
 
+    [SerializeField] private TextMeshProUGUI barkTextBox;
+    [SerializeField] private GameObject barkBox;
+
     private Animator anim;
     private SpriteRenderer sr;
     private float lastKnownXPosition;
     private ClickableObject clickHandler;
+
 
     //   is called before the first frame update
     void Awake()
@@ -32,6 +37,9 @@ public class HeroPawn : MonoBehaviour
 
             clickHandler.OnClick.AddListener(OpenCharacterWindowAction);
         }
+
+        // Hide the barkbox
+        barkBox.SetActive(false);
     }
 
     public void OpenCharacterWindowAction()
@@ -57,6 +65,17 @@ public class HeroPawn : MonoBehaviour
     public IEnumerator DoQuestBark()
     {
         Debug.Log("I EITHER LIKE OR DISLIKE THIS QUEST!");
+        yield return null;
+    }
+
+    public IEnumerator DoBark(string bark)
+    {
+        barkTextBox.text = bark;
+        barkBox.SetActive(true);
+
+        yield return new WaitForSeconds(3.5f);
+
+        barkBox.SetActive(false);
         yield return null;
     }
 

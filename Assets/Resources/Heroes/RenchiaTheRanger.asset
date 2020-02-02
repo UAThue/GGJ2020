@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Renchia
   displayName: Renchia the Ranger
-  biographyText: The bone between my animal companion and I is much more than that.
+  biographyText: The bond between my animal companion and I is much more than that.
     It is stronger than any other, if you nurture it properly. Not sharing a language
     is not a barrier, because the bond is deeper than that. It speaks to the soul.
   attack: 125

@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
     public float ValueBasedOnDurability(float sourceValue, float durabilityValue)
     {
         // Calculate new value based on how durability and durabilityEffectCurve change the source value
-        return durabilityEffectCurve.Evaluate(sourceValue);
+        return sourceValue * durabilityEffectCurve.Evaluate(durabilityValue);
     }
 
     public QuestOutcome DetermineBattleOutcome( List<HeroPawn> heroes, QuestData quest)

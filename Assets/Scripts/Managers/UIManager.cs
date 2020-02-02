@@ -118,8 +118,12 @@ public class UIManager : MonoBehaviour
     {
         characterNameBox.text = hero.heroData.displayName;
         characterDescriptionBox.text = hero.heroData.biographyText;
-        characterAttackBox.text = hero.heroData.attack + " ATK\n("+ToPercent(hero.weaponCondition)+")";
-        characterDefenseBox.text = hero.heroData.attack + " DEF\n(" + ToPercent(hero.armorCondition) + ")";
+        characterAttackBox.text = "" + Mathf.Floor(GameManager.instance.ValueBasedOnDurability(hero.heroData.attack, hero.weaponCondition));
+        characterAttackBox.text += " ATK\n(" + ToPercent(hero.weaponCondition) + ")";
+
+        characterDefenseBox.text = "" + Mathf.Floor(GameManager.instance.ValueBasedOnDurability(hero.heroData.defense, hero.armorCondition));
+        characterDefenseBox.text += " DEF\n(" + ToPercent(hero.armorCondition) + ")";
+
         characterGoldBox.text = hero.gold + " gp";
         characterHealthBox.text = hero.heroData.health + " hp";
         characterImage.sprite = hero.heroData.displaySprite;

@@ -27,18 +27,54 @@ MonoBehaviour:
   disadvantages:
   - {fileID: 11400000, guid: d300a3fcde48dff4d8c93e3a8ada10f3, type: 2}
   - {fileID: 11400000, guid: 13b9ac19b55504c4bb74c9b58a4e8a2a, type: 2}
+  soloIdleBarks:
+  - You fix Boulder!
+  - Boulder excited to kill!
+  - I take Boulder on quest!
   idleBarks:
-  - bark: '%other%, my old friend! Good to see you again!'
-    minRelationshipLevel: 4.5
-    maxRelationshipLevel: 5
-  - bark: Hello, %other%.
-    minRelationshipLevel: 2
-    maxRelationshipLevel: 4.5
-  - bark: Oh, great... %other% again.
+  - bark: '%other%! You back up! Boulder no like you!'
     minRelationshipLevel: 0
     maxRelationshipLevel: 2
+  - bark: If Boulder smash %other% on "accident", that okay
+    minRelationshipLevel: 0
+    maxRelationshipLevel: 2
+  - bark: Boulder make pancake of %other%!
+    minRelationshipLevel: 0
+    maxRelationshipLevel: 2
+  - bark: '%other%! Have you met Boulder?'
+    minRelationshipLevel: 2
+    maxRelationshipLevel: 4
+  - bark: '%other% pet Boulder once. That nice.'
+    minRelationshipLevel: 2
+    maxRelationshipLevel: 4
+  - bark: Boulder want hug %other%!
+    minRelationshipLevel: 2
+    maxRelationshipLevel: 4
+  - bark: Boulder like killing with %other%!
+    minRelationshipLevel: 4
+    maxRelationshipLevel: 5
+  - bark: '%other% is fun! Boulder say so!'
+    minRelationshipLevel: 4
+    maxRelationshipLevel: 5
+  - bark: Hi %other%! You want kill monsters together?
+    minRelationshipLevel: 4
+    maxRelationshipLevel: 5
+  advantageQuestBarks:
+  - Yay!!! Boulder love smashing %monster%!
+  - Boulder is best at turning %monster% into pancake!
+  - '%monster% is no match for Boulder!'
   disadvantageQuestBarks:
-  - '%disadvantageType%s!?!  Why did it have to be %disadvantageType%s?!?'
+  - Uh oh... %monster%...
+  - Boulder no good at %monster%!
+  - '%monster% is tricky!'
+  successQuestBarks:
+  - '%monster% just pancake now!'
+  - '%monster% no match for Boulder!'
+  - RRAAWWWRRRRRR!!!!
+  failQuestBarks:
+  - '%monster% is dumb!'
+  - How %monster% beat Boulder!?
+  - Boulder sad.
   teamMissionFailedBarks:
   - '%teammate%, you really blew it that time.'
   - I blame %teammate%.

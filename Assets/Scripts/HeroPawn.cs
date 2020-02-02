@@ -28,7 +28,7 @@ public class HeroPawn : MonoBehaviour
     {
         if (clickHandler != null)
         {
-            Debug.Log("has clickhandler");
+            //Debug.Log("has clickhandler");
 
             clickHandler.OnClick.AddListener(OpenCharacterWindowAction);
         }
@@ -47,6 +47,20 @@ public class HeroPawn : MonoBehaviour
     {
         
     }
+
+    public IEnumerator DoRepairBark()
+    {
+        Debug.Log("REPAIRING!");
+        yield return null;
+    }
+
+    public IEnumerator DoQuestBark()
+    {
+        Debug.Log("I EITHER LIKE OR DISLIKE THIS QUEST!");
+        yield return null;
+    }
+
+
 
     public IEnumerator MoveTo(Vector3 position)
     {

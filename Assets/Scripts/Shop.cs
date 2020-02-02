@@ -187,9 +187,6 @@ public class Shop : MonoBehaviour
 
             // TODO: Show floating message for "Armor Repaired"
         }
-
-        // TODO: Send the customer to the QuestSignup Board
-
         // End
         yield return null;
     }

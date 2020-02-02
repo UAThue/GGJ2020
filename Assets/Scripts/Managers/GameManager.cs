@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public AnimationCurve bonusEffectByRelationshipAverageCurve;
 
     public float maxRelationshipLevel = 5;
+    public float increaseToRelationshipPerMission = 1.0f;
     public float minStartingRelationshipLevel = 0;
     public float maxStartingRelationshipLevel = 2;
 
@@ -268,9 +269,11 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator DoRunQuests()
     {
+        Debug.Log("Starting to Run Quests");
 
         // Turn on the results screen
         uiManager.OpenWindow(uiManager.QuestOutcomeDisplay);
+        uiManager.OpenWindow(uiManager.MainGameButton);
         
         List<QuestObject> questsToRemove = new List<QuestObject>();
         
@@ -336,8 +339,10 @@ public class GameManager : MonoBehaviour
             // Turn on the results screen
             uiManager.CloseCurrentWindow();
             uiManager.OpenWindow(uiManager.EndOfDayScreen);
+            uiManager.OpenWindow(uiManager.MainGameButton);
 
             // TODO: Set text to say "DAYS REMAINING..." + days
+            uiManager.endOfDayText.text = "Another day has ended... " + turnsRemaining + "days remain...";
 
             // Enable the button
             nextStepButton.interactable = true;
@@ -349,6 +354,9 @@ public class GameManager : MonoBehaviour
             {
                 yield return null;
             }
+
+            // Turn off the end of day text
+            uiManager.CloseCurrentWindow();
 
             // Move all characters offscreen on right side
             foreach (HeroPawn hero in heroes)
@@ -523,6 +531,28 @@ public float ValueBasedOnDurability(float sourceValue, float durabilityValue)
             {
                 // Divide gold among heroes, leftovers are destroyed into the ether
                 hero.gold += (int)(quest.goldReward / heroes.Count);
+
+                //Update relationships
+                foreach (HeroPawn otherHero in heroes)
+                {
+                    if (otherHero != hero)
+                    {
+                        // Find where they are in the main heroes list
+                        int heroID = 0;
+                        for (int i = 0; i < GameManager.instance.heroes.Count; i++)
+                        {
+                            if (otherHero != hero && otherHero == GameManager.instance.heroes[i])
+                            {
+                                heroID = i;
+                                break;
+                            }
+                        }
+
+                        hero.relationships[heroID] += increaseToRelationshipPerMission;
+                        Debug.Log(hero.heroData.displayName +" and "+ GameManager.instance.heroes[heroID].heroData.displayName+" high five.");
+                    }
+                }
+
             }
 
             // Add success events to the event list
@@ -539,7 +569,7 @@ public float ValueBasedOnDurability(float sourceValue, float durabilityValue)
                 results.events.Add(eventString);
             }
 
-            // TODO: Update relationships
+
 
 
         }

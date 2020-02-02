@@ -176,8 +176,15 @@ public class Shop : MonoBehaviour
             GameManager.instance.heroes[currentCustomerIndex].gold -= GameManager.instance.repairData[currentRepairIndex].cost;
             GameManager.instance.heroes[currentCustomerIndex].weaponCondition += GameManager.instance.repairData[currentRepairIndex].repairWeaponAmount;
 
-            // TODO: Show floating message for "Weapon Repaired"
+            // Repair Bark
+            StartCoroutine(GameManager.instance.heroes[currentCustomerIndex].DoBark(GameManager.instance.repairData[currentRepairIndex].title + " purchased. This should help."));
         }
+        else
+        {
+            // Repair fail bark
+            StartCoroutine(GameManager.instance.heroes[currentCustomerIndex].DoBark(GameManager.instance.repairData[currentRepairIndex].title + " is too expensive!"));
+        }
+
 
         //If they have enough coin for armor, update
         if (GameManager.instance.heroes[currentCustomerIndex].gold > GameManager.instance.repairData[currentRepairIndex].cost)
@@ -185,7 +192,8 @@ public class Shop : MonoBehaviour
             GameManager.instance.heroes[currentCustomerIndex].gold -= GameManager.instance.repairData[currentRepairIndex].cost;
             GameManager.instance.heroes[currentCustomerIndex].armorCondition += GameManager.instance.repairData[currentRepairIndex].repairArmorAmount;
 
-            // TODO: Show floating message for "Armor Repaired"
+            // NOTE: Armor and weapons joined -- no need for two barks
+
         }
         // End
         yield return null;
@@ -204,12 +212,15 @@ public class Shop : MonoBehaviour
 
             Debug.Log(GameManager.instance.heroes[currentCustomerIndex].heroData.displayName + " signed up for quest "+ todaysQuests[currentQuestBoardIndex].questData.displayName);
 
-            // TODO: Quest Bark
+            // Quest Bark
+            StartCoroutine(GameManager.instance.heroes[currentCustomerIndex].DoBark( todaysQuests[currentQuestBoardIndex].questData.displayName + "??? I can do that!"));
         }
         else
         {
             Debug.Log(GameManager.instance.heroes[currentCustomerIndex].heroData.displayName + " failed to join quest " + todaysQuests[currentQuestBoardIndex].questData.displayName);
-            // TODO: Bark that quest is too full
+            // Bark that quest is too full
+            StartCoroutine(GameManager.instance.heroes[currentCustomerIndex].DoBark("Darn. " + todaysQuests[currentQuestBoardIndex].questData.displayName + " sounds like fun, but those jerks got there first."));
+
         }
 
         // End

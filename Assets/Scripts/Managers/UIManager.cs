@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     public GameObject RepairSettingsDisplay;
     public GameObject QuestOutcomeDisplay;
     public GameObject EndOfDayScreen;
+    public GameObject MainGameButton;
 
     private GameObject currentWindow;
 
@@ -45,6 +46,9 @@ public class UIManager : MonoBehaviour
     [Header("Combat Log Screen")]
     public TextMeshProUGUI combatQuestTitleBox;
     public TextMeshProUGUI combatEventsLog;
+
+    [Header("End of Day Screen")]
+    public TextMeshProUGUI endOfDayText;
 
 
 
@@ -88,7 +92,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenWindow(GameObject window)
     {
-        CloseCurrentWindow();
+        //CloseCurrentWindow();
         currentWindow = window;
         StartCoroutine(DoOpenWindow(window));
     }

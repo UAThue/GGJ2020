@@ -19,7 +19,7 @@ MonoBehaviour:
     to teach me. I best my opponents, because I heed their advice, and my oppoents
     do not.
   attack: 75
-  defense: 75
+  defense: 100
   health: 125
   startingGold: 4
   advantages:

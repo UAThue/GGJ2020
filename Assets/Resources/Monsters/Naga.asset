@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a22a8cd246c99044e9e913f21bd40ffc, type: 3}
-  m_Name: MiniHorse
+  m_Name: Naga
   m_EditorClassIdentifier: 
-  ID: mini_horse
-  displayName: Mini Horses
-  attack: 75
-  defense: 40
-  health: 50
+  ID: naga
+  displayName: Naga
+  attack: 100
+  defense: 100
+  health: 75
   modifiers:
-  - {fileID: 11400000, guid: aa9e6131480ec134d8c30e18a8f5682d, type: 2}
-  - {fileID: 11400000, guid: 7a22de90a068759439c75edd5b33a418, type: 2}
-  - {fileID: 11400000, guid: ebc2091da77e5134cb6aeac217a6cd69, type: 2}
+  - {fileID: 11400000, guid: b9b5b9674fe41fc448e858b24b067b71, type: 2}
+  - {fileID: 11400000, guid: 689fe53c15d3e4045b19017927002179, type: 2}
+  - {fileID: 11400000, guid: 9865e7c29a2910647a1d14485f93c461, type: 2}

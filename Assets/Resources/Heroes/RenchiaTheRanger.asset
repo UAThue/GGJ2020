@@ -14,13 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Renchia
   displayName: Renchia the Ranger
-  biographyText: 
-  attack: 0
-  defense: 0
-  health: 0
-  startingGold: 0
-  advantages: []
-  disadvantages: []
+  biographyText: The bone between my animal companion and I is much more than that.
+    It is stronger than any other, if you nurture it properly. Not sharing a language
+    is not a barrier, because the bond is deeper than that. It speaks to the soul.
+  attack: 125
+  defense: 75
+  health: 100
+  startingGold: 5
+  advantages:
+  - {fileID: 11400000, guid: 01777b0bfdbf3c14ead87f9634b5b8fe, type: 2}
+  - {fileID: 11400000, guid: ae3d833bb5d7d73408156fea36a5c179, type: 2}
+  disadvantages:
+  - {fileID: 11400000, guid: a89664a574b825a49af8151fba8e3f04, type: 2}
+  - {fileID: 11400000, guid: 7e9e4f869c3f6fc4cae0af273a295063, type: 2}
+  - {fileID: 11400000, guid: 5268eaa7f2d711143ab744452e092a23, type: 2}
   idleBarks: []
   disadvantageQuestBarks: []
   teamMissionFailedBarks: []

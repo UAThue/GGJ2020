@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22a8cd246c99044e9e913f21bd40ffc, type: 3}
   m_Name: MiniHorse
   m_EditorClassIdentifier: 
-  ID: 
-  displayName: 
+  ID: mini_horse
+  displayName: Mini Horses
   attack: 0
   defense: 0
   health: 0

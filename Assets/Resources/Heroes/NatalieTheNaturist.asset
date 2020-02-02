@@ -14,13 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Natalie
   displayName: Natalie the Naturist
-  biographyText: 
-  attack: 0
-  defense: 0
-  health: 0
-  startingGold: 0
-  advantages: []
-  disadvantages: []
+  biographyText: I just like nature... a LOT! The animals, and the plants especially,
+    just have such a "now" mentality. I just think there's a whole bunch we could
+    learn from them about that, ya know? Anyway, that's why I was rolling around in
+    the mud.
+  attack: 25
+  defense: 50
+  health: 200
+  startingGold: 4
+  advantages:
+  - {fileID: 11400000, guid: db988fc08f4ef0d42b97911a4693e787, type: 2}
+  - {fileID: 11400000, guid: 331824a76e412d840bdd51062eed2e6c, type: 2}
+  disadvantages:
+  - {fileID: 11400000, guid: 26461028d50c9c44d9c4f5847d4457f2, type: 2}
+  - {fileID: 11400000, guid: 1b0254d64feb7b34e9331d9d28ce6daa, type: 2}
+  - {fileID: 11400000, guid: 2b7cb367fdc6845479427d99ea36bae9, type: 2}
   idleBarks: []
   disadvantageQuestBarks: []
   teamMissionFailedBarks: []

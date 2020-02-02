@@ -18,7 +18,7 @@ MonoBehaviour:
     person you've ever met. Fire Explosion is the most efficent spell. It gets the
     job done as fast as magically possible. If a few friends get singed along the
     way that's okay with me.
-  attack: 125
+  attack: 150
   defense: 25
   health: 75
   startingGold: 7

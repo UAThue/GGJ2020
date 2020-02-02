@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Renchia
   displayName: Renchia the Ranger
-  biographyText: The bond between my animal companion and I is much more than that.
-    It is stronger than any other, if you nurture it properly. Not sharing a language
-    is not a barrier, because the bond is deeper than that. It speaks to the soul.
+  biographyText: The bond between my wolf companion, Brutus, and I is much more than
+    that. It has become stronger than any other. Not sharing a language is not a barrier,
+    because our bond is deeper than that. This connection allows to communicate on
+    a much deeper level.
   attack: 125
   defense: 75
   health: 100
@@ -28,7 +29,53 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a89664a574b825a49af8151fba8e3f04, type: 2}
   - {fileID: 11400000, guid: 7e9e4f869c3f6fc4cae0af273a295063, type: 2}
   - {fileID: 11400000, guid: 5268eaa7f2d711143ab744452e092a23, type: 2}
-  idleBarks: []
-  disadvantageQuestBarks: []
+  soloIdleBarks:
+  - Perhaps they sell wolf barding here.
+  - Seems silly to have to leave Brutus outside when they allow Barry entry.
+  - I am eager to retrun to open country side.
+  idleBarks:
+  - bark: Careful what you say, %other%, or I shall feed you to Brutus.
+    minRelationshipLevel: 0
+    maxRelationshipLevel: 2
+  - bark: '%other% reminds me or the dummies at the archery range.'
+    minRelationshipLevel: 0
+    maxRelationshipLevel: 2
+  - bark: '%other%! Watch you tongue, wolf chum!'
+    minRelationshipLevel: 0
+    maxRelationshipLevel: 2
+  - bark: I've noticed Brutus has stopped growling at you, %other%.
+    minRelationshipLevel: 2
+    maxRelationshipLevel: 4
+  - bark: My desire to fill %other% with arrows is subsiding.
+    minRelationshipLevel: 2
+    maxRelationshipLevel: 4
+  - bark: Well met, %other%.
+    minRelationshipLevel: 2
+    maxRelationshipLevel: 4
+  - bark: '%other%, you are welcome to join Brutus and I for a meal.'
+    minRelationshipLevel: 4
+    maxRelationshipLevel: 5
+  - bark: Brutus and I would be happy to fight along side you again, %other%.
+    minRelationshipLevel: 4
+    maxRelationshipLevel: 5
+  - bark: Happy hunting, $other%.
+    minRelationshipLevel: 4
+    maxRelationshipLevel: 5
+  advantageQuestBarks:
+  - I am familiar with this type of foe.
+  - '%monster% will be no problem.'
+  - Brutus is eager for the hunt!
+  disadvantageQuestBarks:
+  - Unnatural opponents such as these always prove challenging.
+  - '%monster% will certainly prove tough for Brutus and I.'
+  - A foe I never look forward to facing.
+  successQuestBarks:
+  - My aim remains true!
+  - Another successful hunt!
+  - '%monster% was no match for Brutus and I!'
+  failQuestBarks:
+  - Our hunt was unsuccessful.
+  - '%monster% proved to be too much for us!'
+  - We have no fruits to show for our labor this time.
   teamMissionFailedBarks: []
   soloMissionFailedBarks: []

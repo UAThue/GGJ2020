@@ -85,7 +85,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            uiManager.Quit();
+        }
     }
 
 
@@ -339,9 +342,10 @@ public class GameManager : MonoBehaviour
     public void InitializeHeroPawns()
     {
         // For each herodata, create an actual pawn
-        foreach (HeroData heroData in heroesData)
+        for (int i=0; i< heroesData.Count; i++)
         {
-            GameObject tempHero = Instantiate(heroPrefab) as GameObject;
+            HeroData heroData = heroesData[i];
+            GameObject tempHero = Instantiate(heroPrefab, new Vector3(10, 0, 0), Quaternion.identity) as GameObject;
             HeroPawn tempHeroPawn = tempHero.GetComponent<HeroPawn>();
             tempHero.name = heroData.displayName;
             Animator tempHeroAnim = tempHero.GetComponent<Animator>();
@@ -351,11 +355,11 @@ public class GameManager : MonoBehaviour
             tempHeroPawn.armorCondition = Random.Range(minStartCondition, maxStartCondition);
             tempHeroPawn.gold = tempHeroPawn.heroData.startingGold;
             tempHeroPawn.relationships = new List<float>();
-            for (int i = 0; i<heroesData.Count; i++) tempHeroPawn.relationships.Add(0);
+            for (int relationshipIndex = 0; relationshipIndex < heroesData.Count; relationshipIndex++) tempHeroPawn.relationships.Add(0);
             heroes.Add(tempHeroPawn);
 
-            // TODO: Move pawn to their appropriate start locations
-
+            // Move pawn to their appropriate start locations
+            tempHeroPawn.StartCoroutine(tempHeroPawn.MoveTo(shop.beforeShoppingIdlePoints[i].position));
         }
 
         // Now that heroes exist, we can give them relationships

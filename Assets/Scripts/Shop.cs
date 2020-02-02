@@ -10,7 +10,13 @@ public class Shop : MonoBehaviour
     public List<Transform> afterShoppingIdlePoints;
     public Transform repairDeskPoint;
     public Transform questBoardPoint;
-    
+    public List<Transform> RandomShopPoints;
+    public Transform enterShopOutside;
+    public Transform enterShopInside;
+    public Transform leaveShopOutside;
+    public Transform leaveShopInside;
+
+
     [Header("Settings")]
     public int currentRepairIndex;
     public int currentQuestBoardIndex;
@@ -61,11 +67,11 @@ public class Shop : MonoBehaviour
                 // Add it to our list of available quests
                 todaysQuests.Add(temp);
 
-                Debug.Log("Added quest "+temp.questData.displayName);
+                //Debug.Log("Added quest "+temp.questData.displayName);
             }
             else
             {
-                Debug.Log("Quest not today: " + GameManager.instance.questData[i].displayName + " : " + GameManager.instance.questData[i].dayPrereq + "|"+ GameManager.instance.currentDay);
+                //Debug.Log("Quest not today: " + GameManager.instance.questData[i].displayName + " : " + GameManager.instance.questData[i].dayPrereq + "|"+ GameManager.instance.currentDay);
             }
         }
     }

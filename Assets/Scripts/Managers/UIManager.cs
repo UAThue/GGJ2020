@@ -48,7 +48,7 @@ public class UIManager : MonoBehaviour
         UpdateQuestWindow();
     }
 
-    public IEnumerator OpenWindow( GameObject UIWindowToOpen )
+    public IEnumerator DoOpenWindow( GameObject UIWindowToOpen )
     {
         // TODO: Open the window
 
@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviour
         yield return null;
     }
 
-    public IEnumerator CloseWindow(GameObject UIWindowToOpen)
+    public IEnumerator DoCloseWindow(GameObject UIWindowToOpen)
     {
         // TODO: Close the window
 
@@ -66,6 +66,23 @@ public class UIManager : MonoBehaviour
         UIWindowToOpen.SetActive(false);
 
         yield return null;
+    }
+
+    public void SetCurrentWindow(GameObject window)
+    {
+        currentWindow = window;
+    }
+
+    public void CloseCurrentWindow ()
+    {
+        StartCoroutine(DoCloseWindow(currentWindow));
+    }
+
+    public void OpenWindow(GameObject window)
+    {
+        CloseCurrentWindow();
+        currentWindow = window;
+        StartCoroutine(DoOpenWindow(window));
     }
 
     public void UpdateQuestWindow()
@@ -92,6 +109,10 @@ public class UIManager : MonoBehaviour
         repairCostBox.text = GameManager.instance.repairData[GameManager.instance.shop.currentRepairIndex].cost +" gp";
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
 
     public void UpdateCharacterWindow( HeroPawn hero )
     {
@@ -163,3 +184,4 @@ public class RelationshipBox
     public Image characterImage;
     public Image RelationshipImage;
 }
+

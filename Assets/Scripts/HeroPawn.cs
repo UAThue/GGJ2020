@@ -14,13 +14,33 @@ public class HeroPawn : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sr;
     private float lastKnownXPosition;
+    private ClickableObject clickHandler;
 
-    // Start is called before the first frame update
-    void Start()
+    //   is called before the first frame update
+    void Awake()
     {
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        clickHandler = GetComponent<ClickableObject>();
     }
+
+    void Start()
+    {
+        if (clickHandler != null)
+        {
+            Debug.Log("has clickhandler");
+
+            clickHandler.OnClick.AddListener(OpenCharacterWindowAction);
+        }
+    }
+
+    public void OpenCharacterWindowAction()
+    {
+        Debug.Log("here");
+        GameManager.instance.uiManager.OpenWindow(GameManager.instance.uiManager.HeroDisplay);
+        GameManager.instance.uiManager.UpdateCharacterWindow(this);
+    }
+
 
     // Update is called once per frame
     void Update()

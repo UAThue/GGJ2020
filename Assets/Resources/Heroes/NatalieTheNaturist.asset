@@ -29,7 +29,53 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 26461028d50c9c44d9c4f5847d4457f2, type: 2}
   - {fileID: 11400000, guid: 1b0254d64feb7b34e9331d9d28ce6daa, type: 2}
   - {fileID: 11400000, guid: 2b7cb367fdc6845479427d99ea36bae9, type: 2}
-  idleBarks: []
-  disadvantageQuestBarks: []
+  soloIdleBarks:
+  - Oh shiny!
+  - Wow! I wonder where you got that!
+  - This shop is so pretty!
+  idleBarks:
+  - bark: I don't think %other% likes me very much.
+    minRelationshipLevel: 0
+    maxRelationshipLevel: 2
+  - bark: '%other% seems kind of grumpy today.'
+    minRelationshipLevel: 0
+    maxRelationshipLevel: 2
+  - bark: Umm.. hi %other%. Eek!
+    minRelationshipLevel: 0
+    maxRelationshipLevel: 2
+  - bark: Excuse me, %other%. I got you a little flower.
+    minRelationshipLevel: 2
+    maxRelationshipLevel: 4
+  - bark: I hope %other% has a good day.
+    minRelationshipLevel: 2
+    maxRelationshipLevel: 4
+  - bark: Maybe %other% and I can be friends now.
+    minRelationshipLevel: 2
+    maxRelationshipLevel: 4
+  - bark: Hi %other%! I made you a flower necklace!
+    minRelationshipLevel: 4
+    maxRelationshipLevel: 5
+  - bark: '%other%, do you want to go adventuring together?'
+    minRelationshipLevel: 4
+    maxRelationshipLevel: 5
+  - bark: Hi best friend, %other%!
+    minRelationshipLevel: 4
+    maxRelationshipLevel: 5
+  advantageQuestBarks:
+  - I know how to handle this one!
+  - '%monster% doesn''t stand a chance this time!'
+  - I'll make sure %monster% LEAVES folks alone!
+  disadvantageQuestBarks:
+  - I'm a little nervous about this one.
+  - I may need some help on this one.
+  - Ew, gross. %monster%!
+  successQuestBarks:
+  - Flower power prevails again!
+  - '%monster% couldn''t hack it!'
+  - Yea! We did it!
+  failQuestBarks:
+  - Ouch! That hurt!
+  - My plants got hacked to pieces.
+  - Big meany!
   teamMissionFailedBarks: []
   soloMissionFailedBarks: []

@@ -344,6 +344,8 @@ public class GameManager : MonoBehaviour
             GameObject tempHero = Instantiate(heroPrefab) as GameObject;
             HeroPawn tempHeroPawn = tempHero.GetComponent<HeroPawn>();
             tempHero.name = heroData.displayName;
+            Animator tempHeroAnim = tempHero.GetComponent<Animator>();
+            tempHeroAnim.runtimeAnimatorController = heroData.animatorController;
             tempHeroPawn.heroData = heroData;
             tempHeroPawn.weaponCondition = Random.Range(minStartCondition, maxStartCondition);
             tempHeroPawn.armorCondition = Random.Range(minStartCondition, maxStartCondition);

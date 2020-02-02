@@ -15,7 +15,11 @@ public class HeroData : ScriptableObject
     public List<Advantage> advantages;
     public List<Disadvantage> disadvantages;
     public List<nearOtherBark> idleBarks;
+	public List<string> soloIdleBarks;
+	public List<string> advantageQuestBarks;
     public List<string> disadvantageQuestBarks;
+	public List<string> successQuestBarks;
+	public List<string> failQuestBarks;
     public List<string> teamMissionFailedBarks;
     public List<string> soloMissionFailedBarks;
 }

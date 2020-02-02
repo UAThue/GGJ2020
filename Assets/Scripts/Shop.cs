@@ -41,7 +41,7 @@ public class Shop : MonoBehaviour
 
         // Start today's quests
         todaysQuests = new List<QuestObject>();
-        AddTodaysQuests();
+        StartCoroutine(DoStartNewTurn());
     }
 
 
@@ -62,7 +62,6 @@ public class Shop : MonoBehaviour
                 todaysQuests.Add(temp);
 
                 Debug.Log("Added quest "+temp.questData.displayName);
-
             }
             else
             {
@@ -79,6 +78,8 @@ public class Shop : MonoBehaviour
         {
             currentQuestBoardIndex = todaysQuests.Count-1;
         }
+
+        // TODO: Update the UI
     }
 
     public void PreviousQuest()
@@ -88,25 +89,30 @@ public class Shop : MonoBehaviour
         {
             currentQuestBoardIndex = 0;
         }
+
+        // TODO: Update the UI
     }
 
 
-    public void startNewDay()
+    public IEnumerator DoStartNewTurn()
     {
         //TODO:  Move all pawns to start points
 
-        //TODO:  Set store mode to start
-
-        //Set currentCustomerIndex to 0
-        currentCustomerIndex = 0;
+        //TODO:  Show some kind of "A new day..." or "Day X of Y"
+        // yield return StartCoroutine(ShowDayIntroText);
 
         //TODO: Add today's quests to list quests -- 
         AddTodaysQuests();
 
+        //Set currentCustomerIndex to 0
+        currentCustomerIndex = 0;
+
+        // TODO: Wait????
+        yield return new WaitForSeconds(0.0f);
 
         //TODO: Activate NextCustomer button
 
-
+        yield return null;
     }
 
     
@@ -114,13 +120,13 @@ public class Shop : MonoBehaviour
 
     public IEnumerator DoNextCustomer()
     {
-        // Increment current customer
-        currentCustomerIndex++;
+        // TODO: Deactivate the Next Customer button
+
+
 
         // TODO: Tell that customer to start walking to the RepairStation
 
 
-        // TODO: Deactivate the Next Customer button
 
         // End
         yield return null;
@@ -168,10 +174,26 @@ public class Shop : MonoBehaviour
 
         }
 
-        // TODO: Now that they have a quest, IF there are more customers activate the Next Customer button.
-        if (GameManager.instance.heroes.Count - 1 > currentCustomerIndex)
+        // TODO: Start customer moving to the exit location
+
+
+        // End
+        yield return null;
+
+    }
+
+
+    public IEnumerator DoEndCustomer()
+    {
+        // Increment current customer
+        currentCustomerIndex++;
+
+        // TODO: Now that they have finished, IF there are more customers activate the Next Customer button.
+        if (GameManager.instance.heroes.Count >= currentCustomerIndex)
         {
             // TODO: Activate the Next Customer button
+
+
         }
         // TODO: Else, no more customers. Activate End Day button instead.
         else
@@ -181,12 +203,8 @@ public class Shop : MonoBehaviour
 
         }
 
-        // TODO: Start customer moving to the exit location
 
-
-        // End
         yield return null;
-
     }
 
 

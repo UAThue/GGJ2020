@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8301fbd8e9328a4d8bd1221531dc53a, type: 3}
+  m_Name: FlyingSnake
+  m_EditorClassIdentifier: 
+  ID: qst_flying_snake
+  displayName: Get These Snakes Outta Here!
+  displayText: "The absurdity of this isn\u2019t lost on me, but they\u2019re flying!
+    The snakes are FLYING now! Some naga agent snuck inland and dumped a bucket of
+    snakes in middle of town, and then blessed them with some kind of flying voodoo
+    magic!"
+  monsters:
+  - {fileID: 11400000, guid: f8ea1f7669829ab49b1ba48c55b3b577, type: 2}
+  goldReward: 23
+  dayPrereq: 6
+  maxAdventurers: 3
+  minDurabilityDamage: 8
+  maxDurabilityDamage: 16

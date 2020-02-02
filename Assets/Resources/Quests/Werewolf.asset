@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8301fbd8e9328a4d8bd1221531dc53a, type: 3}
+  m_Name: Werewolf
+  m_EditorClassIdentifier: 
+  ID: qst_werewolf
+  displayName: Moon Lighter
+  displayText: "Some poor fool was trying to get in on all that \u201Chot vampire
+    action\u201D, but he apparently isn\u2019t too bright. Instead of getting bitten
+    by a vampire, he\u2019s contracted lycanthropy. I need some brave souls to cure
+    or kill the creature before he hurts someone."
+  monsters:
+  - {fileID: 11400000, guid: 1271492560ffe6c48ae1b354f86e7fb5, type: 2}
+  goldReward: 65
+  dayPrereq: 10
+  maxAdventurers: 5
+  minDurabilityDamage: 22
+  maxDurabilityDamage: 28

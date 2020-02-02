@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8301fbd8e9328a4d8bd1221531dc53a, type: 3}
-  m_Name: HueKillTheImps
+  m_Name: BoaConstrictor
   m_EditorClassIdentifier: 
-  ID: KillTheImps
-  displayName: Kill the Imps
-  displayText: 'Imps must die. '
+  ID: qst_boa_constrictor
+  displayName: Probably Boa Constrictors
+  displayText: "I don\u2019t actually know if it\u2019s actually a boa constrictor,
+    but it\u2019s definitely a snake. It\u2019s definitely squeezing the life out
+    of folks. And it\u2019s definitely causing problems."
   monsters:
-  - {fileID: 11400000, guid: 22c58506b1114214983150a5035447b0, type: 2}
-  - {fileID: 11400000, guid: 22c58506b1114214983150a5035447b0, type: 2}
-  - {fileID: 11400000, guid: 22c58506b1114214983150a5035447b0, type: 2}
-  goldReward: 100
+  - {fileID: 11400000, guid: ca407e05fff3f2444b477f87febce310, type: 2}
+  goldReward: 10
   dayPrereq: 0
   maxAdventurers: 2
   minDurabilityDamage: 1
-  maxDurabilityDamage: 10
+  maxDurabilityDamage: 5

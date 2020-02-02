@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8301fbd8e9328a4d8bd1221531dc53a, type: 3}
+  m_Name: Taurcen
+  m_EditorClassIdentifier: 
+  ID: qst_taurcen
+  displayName: Opposite of a Centaur
+  displayText: "It\u2019s a man-horse! It has the body and legs of a human, and the
+    arms and head of a horse! It\u2019s deceptively sneaky since it doesn\u2019t walk
+    on its hooves. More importantly though, it keeps breaking into barns at night
+    to steal our horse food!"
+  monsters:
+  - {fileID: 11400000, guid: 967e252f1f8825947a00f6df759f5241, type: 2}
+  goldReward: 100
+  dayPrereq: 12
+  maxAdventurers: 5
+  minDurabilityDamage: 21
+  maxDurabilityDamage: 36

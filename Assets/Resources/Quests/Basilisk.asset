@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8301fbd8e9328a4d8bd1221531dc53a, type: 3}
+  m_Name: Basilisk
+  m_EditorClassIdentifier: 
+  ID: qst_basilisk
+  displayName: Clean Up Crew
+  displayText: "The king of serpents is terrorizing the kingdom\u2019s port town!
+    He wants revenge for the death of his naga comrades! One glance from this beast
+    will kill you! Fortunately, the last group of adventurers i sent had a phoenix
+    poke his eyes out so you don\u2019t have to worry about that anymore."
+  monsters:
+  - {fileID: 11400000, guid: 3cff3defbdeca124cb7c047bd87f3078, type: 2}
+  goldReward: 100
+  dayPrereq: 11
+  maxAdventurers: 5
+  minDurabilityDamage: 30
+  maxDurabilityDamage: 38

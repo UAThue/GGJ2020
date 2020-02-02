@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8301fbd8e9328a4d8bd1221531dc53a, type: 3}
-  m_Name: HueKillTheImps
+  m_Name: Naga
   m_EditorClassIdentifier: 
-  ID: KillTheImps
-  displayName: Kill the Imps
-  displayText: 'Imps must die. '
+  ID: qst_naga
+  displayName: Naga Attacks the Port
+  displayText: "We\u2019re missing a lot of our imports from the coast. There\u2019s
+    a band of snake-human hybrids terrorizing the port town. We need some help putting
+    a stop to them!"
   monsters:
-  - {fileID: 11400000, guid: 22c58506b1114214983150a5035447b0, type: 2}
-  - {fileID: 11400000, guid: 22c58506b1114214983150a5035447b0, type: 2}
-  - {fileID: 11400000, guid: 22c58506b1114214983150a5035447b0, type: 2}
-  goldReward: 100
-  dayPrereq: 0
-  maxAdventurers: 2
-  minDurabilityDamage: 1
+  - {fileID: 11400000, guid: eeb9bf9ff0339854dbf6f744d091251e, type: 2}
+  goldReward: 14
+  dayPrereq: 4
+  maxAdventurers: 3
+  minDurabilityDamage: 5
   maxDurabilityDamage: 10

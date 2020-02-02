@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8301fbd8e9328a4d8bd1221531dc53a, type: 3}
-  m_Name: HueKillTheImps
+  m_Name: Duck
   m_EditorClassIdentifier: 
-  ID: KillTheImps
-  displayName: Kill the Imps
-  displayText: 'Imps must die. '
+  ID: qst_duck
+  displayName: One Horse Sized Duck
+  displayText: A magical incident has lead to a horse sized duck rampaging through
+    a nearby village!
   monsters:
-  - {fileID: 11400000, guid: 22c58506b1114214983150a5035447b0, type: 2}
-  - {fileID: 11400000, guid: 22c58506b1114214983150a5035447b0, type: 2}
-  - {fileID: 11400000, guid: 22c58506b1114214983150a5035447b0, type: 2}
-  goldReward: 100
-  dayPrereq: 0
+  - {fileID: 11400000, guid: e0008c9865015a74e9b061f9086b10d4, type: 2}
+  goldReward: 10
+  dayPrereq: 1
   maxAdventurers: 2
   minDurabilityDamage: 1
-  maxDurabilityDamage: 10
+  maxDurabilityDamage: 5

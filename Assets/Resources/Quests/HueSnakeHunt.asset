@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8301fbd8e9328a4d8bd1221531dc53a, type: 3}
-  m_Name: SnakeHunt
+  m_Name: HueSnakeHunt
   m_EditorClassIdentifier: 
   ID: SHunt
   displayName: Snake Hunt
@@ -20,3 +20,5 @@ MonoBehaviour:
   goldReward: 10
   dayPrereq: 0
   maxAdventurers: 2
+  minDurabilityDamage: 1
+  maxDurabilityDamage: 10

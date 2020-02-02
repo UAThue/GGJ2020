@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8301fbd8e9328a4d8bd1221531dc53a, type: 3}
-  m_Name: HueKillTheImps
+  m_Name: Imp
   m_EditorClassIdentifier: 
-  ID: KillTheImps
-  displayName: Kill the Imps
-  displayText: 'Imps must die. '
+  ID: imp
+  displayName: Reckless Cultists
+  displayText: Some cultist ritual went terribly wrong, and the misguided fools accidentally
+    summoned a few imps from one of the numerous layers of Hell. I need a few adventurers
+    to go take care of one heading our way before it causes any chaos!
   monsters:
-  - {fileID: 11400000, guid: 22c58506b1114214983150a5035447b0, type: 2}
-  - {fileID: 11400000, guid: 22c58506b1114214983150a5035447b0, type: 2}
-  - {fileID: 11400000, guid: 22c58506b1114214983150a5035447b0, type: 2}
-  goldReward: 100
+  - {fileID: 11400000, guid: 3bfca417629bd4e4fadfc03302309986, type: 2}
+  goldReward: 0
   dayPrereq: 0
-  maxAdventurers: 2
+  maxAdventurers: 0
   minDurabilityDamage: 1
   maxDurabilityDamage: 10

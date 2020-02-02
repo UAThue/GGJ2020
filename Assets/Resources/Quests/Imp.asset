@@ -19,8 +19,8 @@ MonoBehaviour:
     to go take care of one heading our way before it causes any chaos!
   monsters:
   - {fileID: 11400000, guid: 3bfca417629bd4e4fadfc03302309986, type: 2}
-  goldReward: 0
+  goldReward: 1
   dayPrereq: 0
-  maxAdventurers: 0
+  maxAdventurers: 1
   minDurabilityDamage: 1
   maxDurabilityDamage: 10

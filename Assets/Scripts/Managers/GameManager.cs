@@ -202,6 +202,7 @@ public class GameManager : MonoBehaviour
 
         // TODO: ACTUALLY ASSIGN TO QUEST IF POSSIBLE
         nextStepButtonText.text = "... Choosing a Quest ...";
+        yield return StartCoroutine(shop.DoCustomerQuestSignup());
 
         yield return new WaitForSeconds(2.0f);
 
@@ -288,7 +289,13 @@ public class GameManager : MonoBehaviour
                 QuestOutcome results = DetermineBattleOutcome(quest.heroes, quest.questData);
 
                 // TODO: coroutine to Update the quest screen to show results over time.
+                uiManager.combatQuestTitleBox.text = "Results: "+ quest.questData.displayName;
+                uiManager.combatEventsLog.text = "";
+                foreach (string outcomeEvent in results.events)
+                {
 
+
+                }
 
 
                 isWaitingForButton = true;

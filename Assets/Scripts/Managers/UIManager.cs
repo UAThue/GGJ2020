@@ -30,15 +30,21 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI repairDescriptionBox;
     public TextMeshProUGUI repairCostBox;
 
-    [Header("Repair Window Items")]
+    [Header("Character Window Items")]
     public TextMeshProUGUI characterNameBox;
     public TextMeshProUGUI characterDescriptionBox;
     public TextMeshProUGUI characterAttackBox;
     public TextMeshProUGUI characterDefenseBox;
     public TextMeshProUGUI characterHealthBox;
     public TextMeshProUGUI characterGoldBox;
+    public TextMeshProUGUI partyListBox;
     public Image characterImage;
     public List<RelationshipBox> relationshipImages;
+
+    [Header("Combat Log Screen")]
+    public TextMeshProUGUI combatQuestTitleBox;
+    public TextMeshProUGUI combatEventsLog;
+
 
 
 
@@ -46,6 +52,7 @@ public class UIManager : MonoBehaviour
     {
         UpdateRepairWindow();
         UpdateQuestWindow();
+        currentWindow = MainMenu;
     }
 
     public IEnumerator DoOpenWindow( GameObject UIWindowToOpen )
@@ -95,6 +102,21 @@ public class UIManager : MonoBehaviour
         questDurabilityBox.text = "Chance to lose " +
                                   GameManager.instance.shop.todaysQuests[GameManager.instance.shop.currentQuestBoardIndex].questData.minDurabilityDamage + " to " +
                                   GameManager.instance.shop.todaysQuests[GameManager.instance.shop.currentQuestBoardIndex].questData.maxDurabilityDamage + "% durability.";
+
+        partyListBox.text = "";
+        for (int i = 0; i <= GameManager.instance.shop.todaysQuests[GameManager.instance.shop.currentQuestBoardIndex].questData.maxAdventurers -1; i++)
+        {
+            if (GameManager.instance.shop.todaysQuests[GameManager.instance.shop.currentQuestBoardIndex].heroes.Count > i)
+            {
+                partyListBox.text += GameManager.instance.shop.todaysQuests[GameManager.instance.shop.currentQuestBoardIndex].heroes[i].heroData.displayName + "\n";
+            }
+            else
+            {
+                partyListBox.text += " _________ \n";
+            }
+
+        }
+
     }
 
 

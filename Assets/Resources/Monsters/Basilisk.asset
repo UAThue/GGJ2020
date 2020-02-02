@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: basilisk
   displayName: Basilisk
-  attack: 200
-  defense: 250
-  health: 95
+  attack: 300
+  defense: 275
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: abf8689679a8f1f43ba58454b57a7459, type: 2}
   - {fileID: 11400000, guid: b9b5b9674fe41fc448e858b24b067b71, type: 2}

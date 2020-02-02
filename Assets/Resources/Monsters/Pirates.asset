@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: pirates
   displayName: Pirates
-  attack: 100
-  defense: 150
-  health: 75
+  attack: 330
+  defense: 300
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: 1623e48f002eff6428f98c04bcd0a9b8, type: 2}
   - {fileID: 11400000, guid: ebc2091da77e5134cb6aeac217a6cd69, type: 2}

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: orgre
   displayName: Ogre
-  attack: 150
+  attack: 165
   defense: 125
-  health: 65
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: 689fe53c15d3e4045b19017927002179, type: 2}
   - {fileID: 11400000, guid: 732ad077998b034428727aa53a5cb99a, type: 2}

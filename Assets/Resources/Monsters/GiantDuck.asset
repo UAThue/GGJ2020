@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: giant_duck
   displayName: Giant Duck
-  attack: 100
-  defense: 100
-  health: 75
+  attack: 50
+  defense: 25
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: 689fe53c15d3e4045b19017927002179, type: 2}
   - {fileID: 11400000, guid: 7a22de90a068759439c75edd5b33a418, type: 2}

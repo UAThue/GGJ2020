@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Gorilla
   attack: 175
   defense: 150
-  health: 85
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: 689fe53c15d3e4045b19017927002179, type: 2}
   - {fileID: 11400000, guid: 7a22de90a068759439c75edd5b33a418, type: 2}

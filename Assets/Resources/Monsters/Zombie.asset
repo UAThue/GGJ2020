@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: zombie
   displayName: Zombie
-  attack: 65
-  defense: 115
-  health: 115
+  attack: 100
+  defense: 80
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: 68c739e5248ddcf43b49edb7c92c72a7, type: 2}

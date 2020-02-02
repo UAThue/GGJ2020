@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: rotting_fungi
   displayName: Rotting Fungi
-  attack: 175
-  defense: 165
-  health: 80
+  attack: 125
+  defense: 100
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: 923ab5496fa12424c81d106a01eda5b7, type: 2}

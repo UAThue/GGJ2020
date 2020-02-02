@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: ent
   displayName: Ent
-  attack: 225
-  defense: 250
-  health: 95
+  attack: 335
+  defense: 300
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: 689fe53c15d3e4045b19017927002179, type: 2}
   - {fileID: 11400000, guid: 923ab5496fa12424c81d106a01eda5b7, type: 2}

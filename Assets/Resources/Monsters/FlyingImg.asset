@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: flying_imp
   displayName: Flying Imp
-  attack: 75
-  defense: 25
-  health: 125
+  attack: 100
+  defense: 100
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: aa9e6131480ec134d8c30e18a8f5682d, type: 2}
   - {fileID: 11400000, guid: a5e8a85324116fd41bbd8d5f65baa982, type: 2}

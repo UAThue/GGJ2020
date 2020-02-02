@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: beauty_giant
   displayName: Beauty Giant
-  attack: 150
-  defense: 175
-  health: 150
+  attack: 300
+  defense: 250
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: abf8689679a8f1f43ba58454b57a7459, type: 2}
   - {fileID: 11400000, guid: 732ad077998b034428727aa53a5cb99a, type: 2}

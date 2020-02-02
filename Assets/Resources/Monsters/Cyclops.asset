@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: cyclops
   displayName: Cyclops
-  attack: 95
+  attack: 125
   defense: 125
   health: 100
   modifiers:

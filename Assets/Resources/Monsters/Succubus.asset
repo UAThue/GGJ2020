@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: succubus
   displayName: Succubus
-  attack: 100
-  defense: 50
-  health: 125
+  attack: 200
+  defense: 150
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: a5e8a85324116fd41bbd8d5f65baa982, type: 2}
   - {fileID: 11400000, guid: 9865e7c29a2910647a1d14485f93c461, type: 2}

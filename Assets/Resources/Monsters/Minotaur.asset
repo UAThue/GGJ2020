@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: minotaur
   displayName: Minotaur
-  attack: 75
-  defense: 150
-  health: 75
+  attack: 250
+  defense: 225
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: 689fe53c15d3e4045b19017927002179, type: 2}
   - {fileID: 11400000, guid: 732ad077998b034428727aa53a5cb99a, type: 2}

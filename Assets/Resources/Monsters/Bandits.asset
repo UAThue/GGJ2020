@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: bandits
   displayName: Bandits
-  attack: 100
-  defense: 75
-  health: 45
+  attack: 150
+  defense: 125
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: 1623e48f002eff6428f98c04bcd0a9b8, type: 2}
   - {fileID: 11400000, guid: ebc2091da77e5134cb6aeac217a6cd69, type: 2}

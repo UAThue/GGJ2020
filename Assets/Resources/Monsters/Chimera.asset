@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: chimera
   displayName: Chimera
-  attack: 175
+  attack: 275
   defense: 225
   health: 100
   modifiers:

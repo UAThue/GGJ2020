@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: homunculus
   displayName: Homunculus
-  attack: 150
-  defense: 225
-  health: 115
+  attack: 300
+  defense: 300
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: 1623e48f002eff6428f98c04bcd0a9b8, type: 2}

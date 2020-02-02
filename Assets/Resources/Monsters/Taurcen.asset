@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: taurcen
   displayName: Taurcen
-  attack: 185
-  defense: 225
-  health: 75
+  attack: 255
+  defense: 200
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: 689fe53c15d3e4045b19017927002179, type: 2}
   - {fileID: 11400000, guid: 1623e48f002eff6428f98c04bcd0a9b8, type: 2}

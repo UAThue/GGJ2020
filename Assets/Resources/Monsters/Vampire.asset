@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: vampire
   displayName: Vampire
-  attack: 100
-  defense: 150
-  health: 125
+  attack: 300
+  defense: 285
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: 68c739e5248ddcf43b49edb7c92c72a7, type: 2}
   - {fileID: 11400000, guid: 20149782d053fd744b8cbab39b8d2794, type: 2}

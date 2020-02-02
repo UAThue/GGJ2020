@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: werewolf
   displayName: Werewolf
-  attack: 150
-  defense: 175
+  attack: 255
+  defense: 225
   health: 100
   modifiers:
   - {fileID: 11400000, guid: 7a22de90a068759439c75edd5b33a418, type: 2}

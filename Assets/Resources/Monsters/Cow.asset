@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: cow
   displayName: Cow
-  attack: 50
-  defense: 25
-  health: 25
+  attack: 10
+  defense: 5
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: 7a22de90a068759439c75edd5b33a418, type: 2}

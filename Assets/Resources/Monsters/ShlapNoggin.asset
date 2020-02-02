@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: shlap_noggin
   displayName: Shlap Noggin
-  attack: 300
-  defense: 300
-  health: 200
+  attack: 400
+  defense: 400
+  health: 150
   modifiers:
   - {fileID: 11400000, guid: abf8689679a8f1f43ba58454b57a7459, type: 2}
   - {fileID: 11400000, guid: a5e8a85324116fd41bbd8d5f65baa982, type: 2}

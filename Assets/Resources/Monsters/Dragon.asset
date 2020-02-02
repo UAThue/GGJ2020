@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: dragon
   displayName: Dragon
-  attack: 200
-  defense: 300
-  health: 150
+  attack: 350
+  defense: 325
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: abf8689679a8f1f43ba58454b57a7459, type: 2}
   - {fileID: 11400000, guid: e612c39dd2505a242834306835abcf92, type: 2}

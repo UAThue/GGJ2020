@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: poisonous_snake
   displayName: Poisonous Snake
-  attack: 25
+  attack: 75
   defense: 50
-  health: 75
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: aa9e6131480ec134d8c30e18a8f5682d, type: 2}
   - {fileID: 11400000, guid: b9b5b9674fe41fc448e858b24b067b71, type: 2}

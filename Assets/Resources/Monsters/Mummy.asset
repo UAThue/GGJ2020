@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: mummy
   displayName: Mummy
-  attack: 125
+  attack: 160
   defense: 200
   health: 100
   modifiers:

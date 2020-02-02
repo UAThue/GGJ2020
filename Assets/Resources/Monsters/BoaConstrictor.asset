@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: boa_constrictor
   displayName: Boa Constrictor
-  attack: 75
-  defense: 125
-  health: 50
+  attack: 25
+  defense: 5
+  health: 100
   modifiers:
   - {fileID: 11400000, guid: 689fe53c15d3e4045b19017927002179, type: 2}
   - {fileID: 11400000, guid: b9b5b9674fe41fc448e858b24b067b71, type: 2}

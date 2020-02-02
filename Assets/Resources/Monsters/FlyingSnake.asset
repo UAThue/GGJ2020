@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: flying_snake
   displayName: FlyingSnake
-  attack: 75
-  defense: 75
+  attack: 125
+  defense: 150
   health: 100
   modifiers:
   - {fileID: 11400000, guid: aa9e6131480ec134d8c30e18a8f5682d, type: 2}

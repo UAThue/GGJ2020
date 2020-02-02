@@ -28,7 +28,53 @@ MonoBehaviour:
   disadvantages:
   - {fileID: 11400000, guid: a3a9840084ec1bf45bf14852c9f40cb5, type: 2}
   - {fileID: 11400000, guid: a5ffd90cc0bd4374699548ce18177243, type: 2}
-  idleBarks: []
-  disadvantageQuestBarks: []
+  soloIdleBarks:
+  - Many of these weapons are most barbaric.
+  - I am eager to be on my way.
+  - Thank you for reparing our equipment, blacksmith.
+  idleBarks:
+  - bark: Be gone from my presence, %other%.
+    minRelationshipLevel: 0
+    maxRelationshipLevel: 2
+  - bark: '%other% is most ungraceful.'
+    minRelationshipLevel: 0
+    maxRelationshipLevel: 2
+  - bark: I'd prefer not to converse, %other%.
+    minRelationshipLevel: 0
+    maxRelationshipLevel: 2
+  - bark: Greetings, %other%.
+    minRelationshipLevel: 2
+    maxRelationshipLevel: 4
+  - bark: '%other%, hello.'
+    minRelationshipLevel: 2
+    maxRelationshipLevel: 4
+  - bark: You're looking well, %other%.
+    minRelationshipLevel: 2
+    maxRelationshipLevel: 4
+  - bark: Well met, %other%.
+    minRelationshipLevel: 4
+    maxRelationshipLevel: 5
+  - bark: Hope to dance alongside you soon, %other%.
+    minRelationshipLevel: 4
+    maxRelationshipLevel: 5
+  - bark: '%other%, you have my respect.'
+    minRelationshipLevel: 4
+    maxRelationshipLevel: 5
+  advantageQuestBarks:
+  - This %monster% must be put down!
+  - '%monster% shall be no match for me!'
+  - '%monster%''s are clumsy. An easy opponent!'
+  disadvantageQuestBarks:
+  - I do not do well with %monster%.
+  - A challenging opponent to be sure!
+  - I will need to keep my wits about me against %monster%.
+  successQuestBarks:
+  - Once again, I was the more graceful.
+  - '%monster% once again proved to be a terrible dancer.'
+  - Their barbaric attacks were no match for me!
+  failQuestBarks:
+  - I require more training against %monster%.
+  - I must heed the advice of my Order better in the future.
+  - '%monster% was a worthy opponent to be sure.'
   teamMissionFailedBarks: []
   soloMissionFailedBarks: []

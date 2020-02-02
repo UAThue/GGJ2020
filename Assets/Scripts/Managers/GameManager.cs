@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,9 +11,12 @@ public class GameManager : MonoBehaviour
     [Header("Objects")] public List<HeroPawn> heroes;
     public Shop shop;
     public UIManager uiManager;
+    public Button nextStepButton;
+    public TextMeshProUGUI nextStepButtonText;
 
     [Header("DataObjects - Loaded at Start")]
     public List<HeroData> heroesData;
+
     public List<QuestData> questData;
     public List<RepairData> repairData;
 
@@ -27,41 +32,46 @@ public class GameManager : MonoBehaviour
     public float maxRelationshipLevel = 5;
     public float minStartingRelationshipLevel = 0;
     public float maxStartingRelationshipLevel = 2;
+
+     public bool isWaitingForButton = false;
+
     public int currentDay
     {
         get { return maxTurns - turnsRemaining; }
     }
 
     public float
-        minHeroBattleChance = 0.9f; // Hero party aggregates (atk and def) are reduced by a random amount between min and max
+        minHeroBattleChance =
+            0.9f; // Hero party aggregates (atk and def) are reduced by a random amount between min and max
 
     public float maxHeroBattleChance = 1.0f;
 
     public float
-        minMonsterBattleChance = 0.5f; // Monster party aggregates (atk and def) are reduced by a random amount between min and max
+        minMonsterBattleChance =
+            0.5f; // Monster party aggregates (atk and def) are reduced by a random amount between min and max
 
     public float maxMonsterBattleChance = 1.0f;
 
-    [Header("Repair Data")] 
-    public float minStartCondition = 0.35f;
+    [Header("Repair Data")] public float minStartCondition = 0.35f;
     public float maxStartCondition = 0.45f;
 
-    [Header("Player Data")]
-    public int gold = 0;
+    [Header("Player Data")] public int gold = 0;
     public int startingGold = 0;
 
-    [Header("Prefabs")]
-    public GameObject heroPrefab;
+    [Header("Prefabs")] public GameObject heroPrefab;
 
 
 
     private void Awake()
     {
         // Setup GameManager Singleton
-        if (instance == null) {
+        if (instance == null)
+        {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        } else {
+        }
+        else
+        {
             Destroy(gameObject);
         }
 
@@ -71,12 +81,12 @@ public class GameManager : MonoBehaviour
         // Load Data
         LoadDataFromResources();
     }
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        // Init Player
-        InitializePlayer();
+        // Init Game
+        InitializeGame();
 
         // Create hero pawns
         GameManager.instance.InitializeHeroPawns();
@@ -92,7 +102,258 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public float ValueBasedOnDurability(float sourceValue, float durabilityValue)
+    public void InitializeGame()
+    {
+        // Init Player
+        InitializePlayer();
+
+        // Set button to enabled
+        nextStepButton.interactable = true;
+
+        // Set button text to START THE DAY
+        nextStepButtonText.text = "Start Day";
+
+        // Set button to start the day
+        nextStepButton.onClick.RemoveAllListeners();
+        nextStepButton.onClick.AddListener(StartDay);
+    }
+
+    public void StartDay()
+    {
+        // TODO: Make sure the "next day" image is off
+
+        // Start the day
+        StartCoroutine(DoStartDay());
+    }
+
+    public IEnumerator DoStartDay ()
+    {
+        // Disable the button
+        nextStepButton.interactable = false;
+
+        // Set button text to START THE DAY
+        nextStepButtonText.text = "... Customers Approaching ...";
+
+        // Move Heroes to start positions
+        HeroesToYourStartingPositions();
+
+        // Set current hero to 0
+        shop.currentCustomerIndex = 0;
+
+        // Wait a second for them to walk to positions
+        yield return new WaitForSeconds(1.5f);
+
+        // Set button text to START THE DAY
+        nextStepButtonText.text = "Help Customer";
+
+        // Set button to start the day
+        nextStepButton.onClick.RemoveAllListeners();
+        nextStepButton.onClick.AddListener(HelpCustomer);
+
+        // enable the button
+        nextStepButton.interactable = true;
+
+        yield return null;
+    }
+
+    public void HelpCustomer()
+    {
+        StartCoroutine(DoHelpNextCustomer());
+    }
+
+    public IEnumerator DoHelpNextCustomer()
+    {
+        // disable button
+        nextStepButtonText.text = "... Shopping ...";
+        nextStepButton.interactable = false;
+
+        // Wait for customer to move to pre-enter door
+        yield return StartCoroutine(heroes[shop.currentCustomerIndex].MoveTo(shop.enterShopOutside.position));
+
+        // Wait for customer to move to enter door
+        yield return StartCoroutine(heroes[shop.currentCustomerIndex].MoveTo(shop.enterShopInside.position));
+        yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+
+        // Wait for customer to move to a random point
+        yield return StartCoroutine(heroes[shop.currentCustomerIndex].MoveTo(shop.RandomShopPoints[Random.Range(0, shop.RandomShopPoints.Count)].position));
+
+        // Wait for him to twiddle his thumbs
+        yield return StartCoroutine(heroes[shop.currentCustomerIndex].StopMoving());
+        yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+
+        // Wait for him to move to the repair station
+        yield return StartCoroutine(heroes[shop.currentCustomerIndex].MoveTo(shop.repairDeskPoint.position));
+
+        // BARK repair Bark
+        yield return StartCoroutine(heroes[shop.currentCustomerIndex].DoRepairBark());
+
+        // TODO: ACTUALLY DO THE REPAIRS
+        nextStepButtonText.text = "... Repairing ...";
+        yield return StartCoroutine(shop.DoCustomerRepair());
+
+        yield return new WaitForSeconds(2.0f);
+
+        // Wait for him to move to the quest station
+        nextStepButtonText.text = "... Looking for Work ...";
+        yield return StartCoroutine(heroes[shop.currentCustomerIndex].MoveTo(shop.questBoardPoint.position));
+
+        // Bark Quest Bark
+        yield return StartCoroutine(heroes[shop.currentCustomerIndex].DoQuestBark());
+
+        // TODO: ACTUALLY ASSIGN TO QUEST IF POSSIBLE
+        nextStepButtonText.text = "... Choosing a Quest ...";
+
+        yield return new WaitForSeconds(2.0f);
+
+        // Wait for him to twiddle his thumbs
+        yield return StartCoroutine(heroes[shop.currentCustomerIndex].StopMoving());
+        yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+
+
+        // Leave by heading to the exit
+        // Wait for customer to move to pre-exit door
+        nextStepButtonText.text = "... Exiting ...";
+
+        yield return StartCoroutine(heroes[shop.currentCustomerIndex].MoveTo(shop.leaveShopInside.position));
+
+        // Wait for customer to move to exit door
+        yield return StartCoroutine(heroes[shop.currentCustomerIndex].MoveTo(shop.leaveShopOutside.position));
+
+        // Wait for customer to move to standing point
+        yield return StartCoroutine(heroes[shop.currentCustomerIndex].MoveTo(shop.afterShoppingIdlePoints[(shop.afterShoppingIdlePoints.Count -1) - shop.currentCustomerIndex].position));
+
+        // Wait a second for them to walk to positions
+        yield return new WaitForSeconds(0.5f);
+
+        // Help the next customer, if available
+        if (shop.currentCustomerIndex < heroes.Count - 1)
+        {
+            shop.currentCustomerIndex++;
+            nextStepButtonText.text = "Next Customer";
+        }
+        else
+        {
+            // We've helped all the customers
+            nextStepButtonText.text = "Close Shoppe";
+            nextStepButton.onClick.RemoveAllListeners();
+            nextStepButton.onClick.AddListener(RunQuests);
+        }
+
+        // enable the button
+        nextStepButton.interactable = true;
+        yield return null;
+    }
+
+    public void RunQuests()
+    {
+        StartCoroutine(DoRunQuests());
+    }
+
+
+    public void ToggleIsWaitingForButton()
+    {
+        isWaitingForButton = !isWaitingForButton;
+    }
+
+    public void SetIsWaitingForButton(bool value)
+    {
+        isWaitingForButton = value;
+    }
+
+    public void StopWaitingForButton()
+    {
+        isWaitingForButton = false;
+    }
+
+    public IEnumerator DoRunQuests()
+    {
+        isWaitingForButton = false;
+
+        List<QuestObject> questsToRemove = new List<QuestObject>();
+        
+        // For each quest that were available today
+        foreach (QuestObject quest in shop.todaysQuests)
+        {
+            // If it has people assigned
+            if (quest.heroes != null && quest.heroes.Count > 0)
+            {
+
+                // Disable the button
+                nextStepButton.interactable = false;
+                nextStepButtonText.text = "... Fighting! ...";
+
+                isWaitingForButton = true;
+
+                // Calculate the results
+                QuestOutcome results = DetermineBattleOutcome(quest.heroes, quest.questData);
+
+                // TODO: coroutine to Update the quest screen to show results over time.
+
+
+
+                isWaitingForButton = true;
+
+                nextStepButtonText.text = "Continue";
+                nextStepButton.interactable = true;
+                nextStepButton.onClick.RemoveAllListeners();
+                nextStepButton.onClick.AddListener(StopWaitingForButton);
+
+                // Queue to Remove from today's quests
+                questsToRemove.Add(quest);
+
+                // Wait for button
+                while (isWaitingForButton)
+                {
+                    yield return null;
+                }
+            }
+        }
+
+        // Actually handle the removals
+        foreach (QuestObject quest in questsToRemove)
+        {
+            shop.todaysQuests.Remove(quest);
+        }
+
+        // ACTUALLY THE END OF THE DAY
+        turnsRemaining--;
+
+        if (turnsRemaining > 0)
+        {
+            // TODO: SHOW THE END OF DAY IMAGE
+
+            // TODO: Set text to say "DAYS REMAINING..." + days
+
+            // Enable the button
+            nextStepButton.interactable = true;
+            nextStepButtonText.text = "Start Next Day";
+
+            // Wait for button
+            isWaitingForButton = true;
+            while (isWaitingForButton)
+            {
+                yield return null;
+            }
+
+            // Move all characters offscreen on right side
+            foreach (HeroPawn hero in heroes)
+            {
+                hero.transform.position = new Vector3(10, 0 , 0);
+            }
+
+            // Start the day
+            StartDay();
+        }
+
+
+        yield return null;
+    }
+
+
+
+
+
+public float ValueBasedOnDurability(float sourceValue, float durabilityValue)
     {
         // Calculate new value based on how durability and durabilityEffectCurve change the source value
         return sourceValue * durabilityEffectCurve.Evaluate(durabilityValue);
@@ -339,6 +600,17 @@ public class GameManager : MonoBehaviour
         repairData = new List<RepairData>( Resources.LoadAll<RepairData>("RepairTypes"));
     }
 
+
+    public void HeroesToYourStartingPositions()
+    {
+        // Move pawn to their appropriate start locations
+        for (int i = 0; i < heroes.Count; i++)
+        {
+            HeroPawn hero = heroes[i];
+            hero.StartCoroutine(hero.MoveTo(shop.beforeShoppingIdlePoints[i].position));
+        }
+    }
+
     public void InitializeHeroPawns()
     {
         // For each herodata, create an actual pawn
@@ -358,8 +630,6 @@ public class GameManager : MonoBehaviour
             for (int relationshipIndex = 0; relationshipIndex < heroesData.Count; relationshipIndex++) tempHeroPawn.relationships.Add(0);
             heroes.Add(tempHeroPawn);
 
-            // Move pawn to their appropriate start locations
-            tempHeroPawn.StartCoroutine(tempHeroPawn.MoveTo(shop.beforeShoppingIdlePoints[i].position));
         }
 
         // Now that heroes exist, we can give them relationships

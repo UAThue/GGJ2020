@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 [System.Serializable]
@@ -28,6 +29,18 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI repairTitleBox;
     public TextMeshProUGUI repairDescriptionBox;
     public TextMeshProUGUI repairCostBox;
+
+    [Header("Repair Window Items")]
+    public TextMeshProUGUI characterNameBox;
+    public TextMeshProUGUI characterDescriptionBox;
+    public TextMeshProUGUI characterAttackBox;
+    public TextMeshProUGUI characterDefenseBox;
+    public TextMeshProUGUI characterHealthBox;
+    public TextMeshProUGUI characterGoldBox;
+    public Image characterImage;
+    public List<RelationshipBox> relationshipImages;
+
+
 
     void Start()
     {
@@ -80,6 +93,72 @@ public class UIManager : MonoBehaviour
     }
 
 
+    public void UpdateCharacterWindow( HeroPawn hero )
+    {
+        characterNameBox.text = hero.heroData.displayName;
+        characterDescriptionBox.text = hero.heroData.biographyText;
+        characterAttackBox.text = hero.heroData.attack + " ATK\n("+ToPercent(hero.weaponCondition)+")";
+        characterDefenseBox.text = hero.heroData.attack + " DEF\n(" + ToPercent(hero.armorCondition) + ")";
+        characterGoldBox.text = hero.gold + " gp";
+        characterHealthBox.text = hero.heroData.health + " hp";
+        //characterImage.sprite = hero.heroData.sprite;
 
+        int currentRelationshipBox = 0;
 
+        // For each of the heroes in the game
+        for (int otherHeroIndex = 0; otherHeroIndex < GameManager.instance.heroes.Count; otherHeroIndex++)
+        {
+            // If this relationship is with yourself, skip this hero
+            if (hero == GameManager.instance.heroes[otherHeroIndex])
+            {
+                Debug.Log("Skipping relationship with self!");
+                continue;
+            }
+            // Otherwise
+            else
+            {
+                // Enable the relationship box
+                relationshipImages[currentRelationshipBox].characterImage.gameObject.SetActive(true);
+
+                //TODO: Set the image
+
+                // Set the relationship value
+                relationshipImages[currentRelationshipBox].RelationshipImage.fillAmount = hero.relationships[otherHeroIndex] / GameManager.instance.maxRelationshipLevel;
+
+                // Advance to next relationshipbox
+                currentRelationshipBox++;
+                
+                // If we are out of boxes, we have to quit
+                if (currentRelationshipBox >= relationshipImages.Count)
+                {
+                    Debug.Log("More heroes than boxes.");
+                    break;
+                }
+            }
+        }
+
+        // If there are leftover relationship boxes, disable them
+        for (int i = currentRelationshipBox; i < relationshipImages.Count; i++)
+        {
+            Debug.Log("Turning off leftover box #" + i);
+            relationshipImages[i].characterImage.gameObject.SetActive(false);
+        }
+
+    }
+
+    public string ToPercent(float input)
+    {
+        float output = input * 1000;
+        output = Mathf.Floor(output);
+        output /= 10;
+        return output.ToString() + "%";
+    }
+
+}
+
+[System.Serializable]
+public class RelationshipBox
+{
+    public Image characterImage;
+    public Image RelationshipImage;
 }

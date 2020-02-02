@@ -29,5 +29,11 @@ public class HueTests : MonoBehaviour
         }
 
 
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            GameManager.instance.uiManager.UpdateCharacterWindow(heroes[0]);
+        }
+
+
     }
 }

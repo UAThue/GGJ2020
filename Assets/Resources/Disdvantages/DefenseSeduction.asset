@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c1223435b833e4b91b78895ca3a206, type: 3}
   m_Name: DefenseSeduction
   m_EditorClassIdentifier: 
-  ID: 
-  displayName: 
-  against: []
+  ID: dis_def_seductive
+  displayName: Looks Are Everything
+  against:
+  - {fileID: 11400000, guid: 9865e7c29a2910647a1d14485f93c461, type: 2}

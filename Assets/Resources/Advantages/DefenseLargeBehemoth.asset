@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36a7d8b755bc7e4ab1adbb2089603cf, type: 3}
   m_Name: DefenseLargeBehemoth
   m_EditorClassIdentifier: 
-  ID: 
-  displayName: 
-  bonusAmount: 0
-  statistic: 0
-  against: []
+  ID: adv_def_large_behemoth
+  displayName: You're Big, Fought Bigger
+  bonusAmount: 25
+  statistic: 1
+  against:
+  - {fileID: 11400000, guid: abf8689679a8f1f43ba58454b57a7459, type: 2}
+  - {fileID: 11400000, guid: 689fe53c15d3e4045b19017927002179, type: 2}

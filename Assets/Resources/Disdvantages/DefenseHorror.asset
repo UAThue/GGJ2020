@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c1223435b833e4b91b78895ca3a206, type: 3}
   m_Name: DefenseHorror
   m_EditorClassIdentifier: 
-  ID: 
-  displayName: 
-  against: []
+  ID: dis_def_horror
+  displayName: Terrified
+  against:
+  - {fileID: 11400000, guid: 20149782d053fd744b8cbab39b8d2794, type: 2}

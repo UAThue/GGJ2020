@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c1223435b833e4b91b78895ca3a206, type: 3}
   m_Name: AttackSnake
   m_EditorClassIdentifier: 
-  ID: 
-  displayName: 
-  against: []
+  ID: dis_atk_snake
+  displayName: Why'd It Have To Be Snakes?
+  against:
+  - {fileID: 11400000, guid: b9b5b9674fe41fc448e858b24b067b71, type: 2}

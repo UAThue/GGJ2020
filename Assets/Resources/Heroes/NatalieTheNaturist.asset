@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e61028ba0802044950fed566512b99, type: 3}
   m_Name: NatalieTheNaturist
   m_EditorClassIdentifier: 
-  ID: 
-  displayName: 
+  ID: Natalie
+  displayName: Natalie the Naturist
   biographyText: 
   attack: 0
   defense: 0

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be54ceb99d2bc1f419bb808df6166bd2, type: 3}
   m_Name: Epic
   m_EditorClassIdentifier: 
-  id: Epic
+  id: epic
   displayName: Epic

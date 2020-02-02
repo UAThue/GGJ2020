@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36a7d8b755bc7e4ab1adbb2089603cf, type: 3}
   m_Name: DefenseHumanoid
   m_EditorClassIdentifier: 
-  ID: 
-  displayName: 
-  bonusAmount: 0
-  statistic: 0
-  against: []
+  ID: adv_def_humanoid
+  displayName: Stinky!
+  bonusAmount: 25
+  statistic: 1
+  against:
+  - {fileID: 11400000, guid: 1623e48f002eff6428f98c04bcd0a9b8, type: 2}

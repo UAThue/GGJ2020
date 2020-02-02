@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16c1223435b833e4b91b78895ca3a206, type: 3}
-  m_Name: Ophidiophobia
+  m_Name: HueOphidiophobia
   m_EditorClassIdentifier: 
   ID: OP
   displayName: Ophidiophobia - Fear of Snakes

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c1223435b833e4b91b78895ca3a206, type: 3}
   m_Name: AttackUndead
   m_EditorClassIdentifier: 
-  ID: 
+  ID: dis_atk_undead
   displayName: 
-  against: []
+  against:
+  - {fileID: 11400000, guid: 68c739e5248ddcf43b49edb7c92c72a7, type: 2}

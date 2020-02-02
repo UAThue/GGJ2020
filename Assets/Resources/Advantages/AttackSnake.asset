@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36a7d8b755bc7e4ab1adbb2089603cf, type: 3}
   m_Name: AttackSnake
   m_EditorClassIdentifier: 
-  ID: 
-  displayName: 
-  bonusAmount: 0
+  ID: adv_atk_snake
+  displayName: Attack Snake
+  bonusAmount: 25
   statistic: 0
-  against: []
+  against:
+  - {fileID: 11400000, guid: b9b5b9674fe41fc448e858b24b067b71, type: 2}

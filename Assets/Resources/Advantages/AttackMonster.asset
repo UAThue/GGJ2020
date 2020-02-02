@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a36a7d8b755bc7e4ab1adbb2089603cf, type: 3}
-  m_Name: NoYou
+  m_Name: AttackMonster
   m_EditorClassIdentifier: 
-  ID: 
-  displayName: 
-  bonusAmount: 0
+  ID: adv_atk_monster
+  displayName: No You!
+  bonusAmount: 25
   statistic: 0
-  against: []
+  against:
+  - {fileID: 11400000, guid: 732ad077998b034428727aa53a5cb99a, type: 2}

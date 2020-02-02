@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c1223435b833e4b91b78895ca3a206, type: 3}
   m_Name: DefenseFlying
   m_EditorClassIdentifier: 
-  ID: 
-  displayName: 
-  against: []
+  ID: dis_def_flying
+  displayName: Death From Above
+  against:
+  - {fileID: 11400000, guid: 243b9047de3942a4dad7300dad091597, type: 2}

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8301fbd8e9328a4d8bd1221531dc53a, type: 3}
+  m_Name: Ogre
+  m_EditorClassIdentifier: 
+  ID: qst_ogre
+  displayName: Two Eyes Now
+  displayText: "The cyclops are evolving! Now they\u2019ve got two eyes! Everything
+    else about them is pretty much the same. Including them attacking trade routes
+    near our village again! I need someone to put a stop to these 2 eye freaks!"
+  monsters:
+  - {fileID: 11400000, guid: d827b91c2aa48ed47a2c536dc7d8b228, type: 2}
+  goldReward: 29
+  dayPrereq: 6
+  maxAdventurers: 3
+  minDurabilityDamage: 10
+  maxDurabilityDamage: 15

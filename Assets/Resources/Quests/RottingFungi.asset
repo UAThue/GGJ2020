@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8301fbd8e9328a4d8bd1221531dc53a, type: 3}
+  m_Name: RottingFungi
+  m_EditorClassIdentifier: 
+  ID: qst_rotting_fungi
+  displayName: Gross Plant.. Thing
+  displayText: "I just\u2026 I don\u2019t even know anymore. From what I can make
+    of all these reports, folks are being attacked by a \u201Cgiant clump of dying
+    plants that moves on its own\u201D. Can someone verify this, and handle it if
+    they\u2019re right?"
+  monsters:
+  - {fileID: 11400000, guid: 73869c92c1b4d8b4e8e5de71c5b92232, type: 2}
+  goldReward: 18
+  dayPrereq: 5
+  maxAdventurers: 3
+  minDurabilityDamage: 5
+  maxDurabilityDamage: 10

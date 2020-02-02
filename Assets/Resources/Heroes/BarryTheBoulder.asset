@@ -14,16 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Barry
   displayName: Barry the Boulder
-  biographyText: 'Barry is not hero. Boulder is hero. Barry just humble servant of
-    Boulder. Barry do what Boulder say. Boulder say smash monster in face. '
+  biographyText: Barry is not hero. Boulder is hero. Barry just humble servant of
+    Boulder. Barry do what Boulder say. Boulder say smash monster in face.
   attack: 100
   defense: 50
   health: 150
   startingGold: 10
   advantages:
-  - {fileID: 11400000, guid: 6b36945c109a6644e99d30766e42d2a0, type: 2}
+  - {fileID: 11400000, guid: 71ad0c4e15a7dd4499c5385ffdd0f011, type: 2}
+  - {fileID: 11400000, guid: b585ef2d4d746e5448888d5f32aeaa89, type: 2}
+  - {fileID: 11400000, guid: abef271816d47fd42a646386d3b11bf0, type: 2}
   disadvantages:
-  - {fileID: 11400000, guid: 148d6b560539ac642a768064aa5cce18, type: 2}
+  - {fileID: 11400000, guid: d300a3fcde48dff4d8c93e3a8ada10f3, type: 2}
+  - {fileID: 11400000, guid: 13b9ac19b55504c4bb74c9b58a4e8a2a, type: 2}
   idleBarks:
   - bark: '%other%, my old friend! Good to see you again!'
     minRelationshipLevel: 4.5
@@ -41,3 +44,4 @@ MonoBehaviour:
   - I blame %teammate%.
   soloMissionFailedBarks:
   - Maybe if I had some help, I would fight better.
+  displaySprite: {fileID: 21300000, guid: c3f17e0a3dcc0504783df7e9490e27b1, type: 3}

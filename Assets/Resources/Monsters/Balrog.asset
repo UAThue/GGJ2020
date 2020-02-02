@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22a8cd246c99044e9e913f21bd40ffc, type: 3}
+  m_Name: Balrog
+  m_EditorClassIdentifier: 
+  ID: balrog
+  displayName: Ballrock
+  attack: 300
+  defense: 200
+  health: 200
+  modifiers:
+  - {fileID: 11400000, guid: abf8689679a8f1f43ba58454b57a7459, type: 2}
+  - {fileID: 11400000, guid: a5e8a85324116fd41bbd8d5f65baa982, type: 2}

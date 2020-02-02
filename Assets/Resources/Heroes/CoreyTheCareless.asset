@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e61028ba0802044950fed566512b99, type: 3}
+  m_Name: CoreyTheCareless
+  m_EditorClassIdentifier: 
+  ID: Corey
+  displayName: Corey the Careless
+  biographyText: I don't know what everyone is complaining about. I'm the smartest
+    person you've ever met. Fire Explosion is the most efficient spell. It gets the
+    job done as fast as magically possible. If a few friends get singed along the
+    way that's okay with me.
+  attack: 150
+  defense: 25
+  health: 75
+  startingGold: 7
+  advantages:
+  - {fileID: 11400000, guid: 050e29d133763e542950aaa02b933708, type: 2}
+  - {fileID: 11400000, guid: c19e70448cd2fbc46addd0a28e49e6ab, type: 2}
+  disadvantages:
+  - {fileID: 11400000, guid: c66a2ce963a175849beef2535e30ee70, type: 2}
+  idleBarks: []
+  disadvantageQuestBarks: []
+  teamMissionFailedBarks: []
+  soloMissionFailedBarks: []
+  displaySprite: {fileID: 21300000, guid: 5aeaf1a90c71bf9408317ccbd6931fdb, type: 3}

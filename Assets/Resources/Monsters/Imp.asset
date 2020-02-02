@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22a8cd246c99044e9e913f21bd40ffc, type: 3}
   m_Name: Imp
   m_EditorClassIdentifier: 
-  ID: Imp
+  ID: imp
   displayName: Imp
-  attack: 5
-  defense: 5
-  health: 10
+  attack: 50
+  defense: 25
+  health: 125
   modifiers:
+  - {fileID: 11400000, guid: aa9e6131480ec134d8c30e18a8f5682d, type: 2}
   - {fileID: 11400000, guid: a5e8a85324116fd41bbd8d5f65baa982, type: 2}

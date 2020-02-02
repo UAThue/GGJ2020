@@ -27,7 +27,53 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c19e70448cd2fbc46addd0a28e49e6ab, type: 2}
   disadvantages:
   - {fileID: 11400000, guid: c66a2ce963a175849beef2535e30ee70, type: 2}
-  idleBarks: []
-  disadvantageQuestBarks: []
+  soloIdleBarks:
+  - I could probably scorch the whole shop from here...
+  - Are you sure you're properly equipped to repair my items?
+  - Fire Explosion is the most persuasive spell in my arsenal.
+  idleBarks:
+  - bark: A few scorch marks would do wonders for %%other%'s apperance.
+    minRelationshipLevel: 0
+    maxRelationshipLevel: 2
+  - bark: I will blow us all up to escape %%other%'s presence.
+    minRelationshipLevel: 0
+    maxRelationshipLevel: 2
+  - bark: Burnt hair smell's better than %other%.
+    minRelationshipLevel: 0
+    maxRelationshipLevel: 2
+  - bark: Ah, %other% have you seen my latest spell in action?
+    minRelationshipLevel: 2
+    maxRelationshipLevel: 4
+  - bark: '%other%! I hear you too are a fan of the flame.'
+    minRelationshipLevel: 2
+    maxRelationshipLevel: 4
+  - bark: Hello, %other%. What's your favorite spell?
+    minRelationshipLevel: 2
+    maxRelationshipLevel: 4
+  - bark: 'Good to see you today, %other%! '
+    minRelationshipLevel: 4
+    maxRelationshipLevel: 5
+  - bark: '%other% is the human equivalent of Fire Explosion!'
+    minRelationshipLevel: 4
+    maxRelationshipLevel: 5
+  - bark: I hope I can join %other% on their quest today.
+    minRelationshipLevel: 4
+    maxRelationshipLevel: 5
+  advantageQuestBarks:
+  - Ahaha! %monster% is no match for my flame!
+  - Yes, yes, yes! A simple oppoent indeed!
+  - A simple Fire Explosion will do the trick here!
+  disadvantageQuestBarks:
+  - Hmm.. %monster% may prove a difficult opponent.
+  - '%monster%!? A fierce opponent indeed!'
+  - '%monster% may require multiple Fire Explosions...'
+  successQuestBarks:
+  - Naught but a pile of ash now!
+  - Burnt to a crisp!
+  - Too hot for you, %monster%!
+  failQuestBarks:
+  - '%monster% was too hot for me.'
+  - But... fire is always the answer.
+  - How did %monster% resist my flame!?
   teamMissionFailedBarks: []
   soloMissionFailedBarks: []
